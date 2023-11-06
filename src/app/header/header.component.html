@@ -1,0 +1,22 @@
+<mat-toolbar color="primary" >
+  <mat-toolbar-row>
+    <span>My App</span>
+    <span class="example-spacer"></span>
+    <span mat-icon-button class="example-spacer"></span>
+    <button mat-icon-button (click)="show=!show" class="example-icon" aria-label="">
+        <mat-icon>{{show ? 'expand_more': 'menu'  }}</mat-icon>
+    </button>
+  </mat-toolbar-row>
+
+  <mat-toolbar-row *ngIf="show">
+    <span>favorite</span>
+    <mat-list>
+      <mat-list-item>
+        <a [ngClass]="{'btn': true, 'btn-primary': activeLink === 'binding'}" class="btn  border border-primary" (click)="setActiveLink('binding')" routerLink="/binding">Event Binding</a>
+      </mat-list-item>
+    </mat-list>
+    <a [ngClass]="{'btn': true, 'btn-primary': activeLink === 'table'}" class="btn border border-primary" (click)="setActiveLink('table')" routerLink="/table">Table</a>
+    <span class="example-spacer"></span>
+    <mat-icon>favorite</mat-icon>
+  </mat-toolbar-row>
+</mat-toolbar>
