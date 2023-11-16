@@ -4,7 +4,7 @@
     <span class="example-spacer"></span>
     <span mat-icon-button class="example-spacer"></span>
     <button mat-icon-button (click)="show=!show" class="example-icon" aria-label="">
-        <mat-icon>{{show ? 'expand_more': 'menu'  }}</mat-icon>
+        <mat-icon>{{show ? 'expand_less': 'menu'  }}</mat-icon>
     </button>
   </mat-toolbar-row>
 
@@ -12,10 +12,11 @@
     <span>favorite</span>
     <mat-list>
       <mat-list-item>
-        <a [ngClass]="{'btn': true, 'btn-primary': activeLink === 'binding'}" class="btn  border border-primary" (click)="setActiveLink('binding')" routerLink="/binding">Event Binding</a>
+        <a [ngClass]="{'btn': true, 'btn-primary': activeLink === 'binding'}" class="btn me-2 text-light border border-light" (click)="setActiveLink('binding')" routerLink="/binding">Event Binding</a>
+        <a [ngClass]="{'btn': true, 'btn-primary': activeLink === 'table'}" class="btn me-2 text-light border border-light" (click)="setActiveLink('table')" routerLink="/table">Table</a>
+        <a [ngClass]="{'btn': true, 'btn-primary': activeLink === 'store-ngrx'}" class="btn me-2 text-light border border-light" (click)="setActiveLink('store-ngrx')" routerLink="/store-ngrx">Store-ngrx</a>
       </mat-list-item>
     </mat-list>
-    <a [ngClass]="{'btn': true, 'btn-primary': activeLink === 'table'}" class="btn border border-primary" (click)="setActiveLink('table')" routerLink="/table">Table</a>
     <span class="example-spacer"></span>
     <mat-icon>favorite</mat-icon>
   </mat-toolbar-row>
