@@ -10,13 +10,32 @@
       <mat-expansion-panel>
         <mat-expansion-panel-header>
           <mat-panel-title>
+            Angular Interaction
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <a mat-list-item routerLink="viewchild">ViewChild</a>
+        <a mat-list-item routerLink="binding">Binding</a>
+        <a mat-list-item routerLink="viewchild">Two way binding</a>
+        <a mat-list-item routerLink="viewchild">Getters and Setters</a>
+        <a mat-list-item routerLink="viewchild">ngOnChanges</a>
+        <a mat-list-item routerLink="viewchild" routerLink="output">Output Decorator</a>
+        <a mat-list-item routerLink="viewchild" routerLink="input">Input Decorator</a>
+        <a mat-list-item routerLink="viewchild">Parent & child</a>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
             Directives
           </mat-panel-title>
         </mat-expansion-panel-header>
-        <a mat-list-item>ngIf</a>
-        <a mat-list-item>ngSwitch</a>
-        <a mat-list-item>ngFor</a>
-        <a mat-list-item>ngTemplateOutlet</a>
+        <a mat-list-item (click)="updatePageTitle('ngIf')" routerLink="ngif">ngIf</a>
+        <a mat-list-item (click)="updatePageTitle('ngSwitch')">ngSwitch</a>
+        <a mat-list-item (click)="updatePageTitle('ngFor')" routerLink="ngfor">ngFor</a>
+        <a mat-list-item (click)="updatePageTitle('ngClass')" routerLink="ngclass">ngClass</a>
+        <a mat-list-item (click)="updatePageTitle('ng-content')" routerLink="ngcontent">ng-content</a>
+        <a mat-list-item (click)="updatePageTitle('ng-template')" routerLink="ngtemplate">ng-template</a>
+        <a mat-list-item (click)="updatePageTitle('ng-container')">ng-container</a>
         <a mat-list-item>Change Detection</a>
         <a mat-list-item>Custom Directive</a>
       </mat-expansion-panel>
@@ -27,10 +46,10 @@
           </mat-panel-title>
 
         </mat-expansion-panel-header>
-        <a mat-list-item href="" >Property Binding</a>
+        <a mat-list-item routerLink="/propertybinding" (click)="updatePageTitle('Property Binding')">Property Binding</a>
         <a mat-list-item href="" >Class Binding</a>
-        <a mat-list-item href="" >Style Binding</a>
-        <a mat-list-item href="" routerLink="/binding">Event Binding</a>
+        <a mat-list-item href="" routerLink="/stylebinding" (click)="updatePageTitle('Style Binding')" >Style Binding</a>
+        <a mat-list-item href="" routerLink="/eventbinding" (click)="updatePageTitle('Event Binding')">Event Binding</a>
         <a mat-list-item href="" >KeyUp Event</a>
         <a mat-list-item href="" >Pipes</a>
         <a mat-list-item href="" >Two Way Binding</a>
@@ -39,11 +58,28 @@
       <mat-expansion-panel>
         <mat-expansion-panel-header>
           <mat-panel-title>
+            Lifecycle Hook
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <a mat-list-item routerLink="parenthook">Child & Parent</a>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
             NGRX
           </mat-panel-title>
-
         </mat-expansion-panel-header>
-        <a mat-list-item href="" routerLink="/store-ngrx">Store</a>
+        <a mat-list-item href="" routerLink="/store-ngrx" (click)="updatePageTitle('Store')">Store</a>
+        <a mat-list-item href="" routerLink="/store-ngrx" (click)="updatePageTitle('Observable')">Observable</a>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Material Angular
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <a mat-list-item href="" routerLink="dialog" (click)="updatePageTitle('Dialog')">Dialog</a>
+        <a mat-list-item href="" routerLink="/store-ngrx" (click)="updatePageTitle('Observable')">Table</a>
       </mat-expansion-panel>
     </mat-nav-list>
   </mat-sidenav>
@@ -57,7 +93,9 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>Learn_Angular</span>
+      <span>{{pageTitle}}</span>
+      <span class="example-spacer"></span>
+      <button class="me-3" mat-flat-button routerLink="/login">Login</button>
     </mat-toolbar>
     <router-outlet></router-outlet>
     <!-- Add Content Here -->

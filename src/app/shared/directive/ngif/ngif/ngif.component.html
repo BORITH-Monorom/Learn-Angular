@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="border">
+    <h1 class=" title">Example 1</h1>
+    <div *ngIf="display; then thenBlock else elseBlock"></div>
+    <button class="btn btn-danger" (click)="test()">click</button>
+    <ng-template #thenBlock>
+      <h1>visible</h1>
+    </ng-template>
+    <ng-template #elseBlock>
+      <h1>hidden</h1>
+    </ng-template>
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <div class="border">
+    <h1 class="title">Example 2</h1>
+    <p
+      class="desc"
+      [ngClass]="{'textcolor': textcolor}"
+    >click to change style</p>
+    <h2>Change color</h2>
+    <button class="btn btn-danger" (click)="test2()">click</button>
+  </div>
+</div>

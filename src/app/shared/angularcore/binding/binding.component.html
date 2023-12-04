@@ -1,0 +1,7 @@
+<div class="container">
+  <div class="title">example 1</div>
+  <app-modal *ngFor="let item of data" [Inputdata]=item></app-modal>
+  <p class="desc">Event Binding {{Event}}: <span>from an HTML  to  the component class </span></p>
+</div>
+
+<button (click)="increment()">clicked {{increments}}</button>

@@ -16,4 +16,9 @@ export class NameNavComponent {
       map(result => result.matches),
       shareReplay()
     );
+
+    pageTitle: string = "Learn_Angular";
+    updatePageTitle(newTitle: string): void{
+      this.pageTitle = newTitle;
+    }
 }

@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="title">Example 1</div>
+  <div class="subtitle">Using ngfor and ngif to odd and event number</div>
+  <button class="btn btn-primary" (click)="onclick = !onclick">button</button>
+
+  <div class="list-group" >
+    <div *ngIf="onclick">
+      <div *ngFor="let odd of oddnumber" class="list-group-item">{{odd}}</div>
+    </div>
+    <div *ngIf="!onclick">
+      <div *ngFor="let even of evennumber" class="list-group-item">{{even}}</div>
+    </div>
+  </div>
+
+
+  <div class="title">Example 2</div>
+  <div class="subtitle"></div>
+  <div class="desc">
+    <div *ngFor="let name of user.name; let i = index">
+      <p>{{i+1}} name: {{name}}</p>
+    </div>
+    <p>Title: {{user.title}}</p>
+    <p>address: {{user.address}}</p>
+<div *ngFor="let phone of user.phone; let i = index">
+    <p>{{i+1}} Tel: {{phone}}</p>
+</div>
+
+    <!-- <p>{{user.phone[1]}}</p>
+    <p>{{user.phone[0]}}</p> -->
+  </div>
+</div>
