@@ -26,4 +26,7 @@ login(){
   this.email = '';
   this.password = '';
 }
+signInWithGoogle(){
+  this.auth.googleSignIn();
+}
 }

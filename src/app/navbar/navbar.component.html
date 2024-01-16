@@ -1,0 +1,17 @@
+<mat-toolbar>
+  <img src="../../assets/images/logos.png" alt="" width="75px">
+  <button mat-button>Home</button>
+  <button mat-button>About Us</button>
+  <button mat-button>Contact Us</button>
+  <button mat-button>Price</button>
+  <button mat-button routerLink="dashboard">Course</button>
+  <span class="spacer"></span>
+  <button mat-flat-button color="primary"  routerLink="/login"
+  (click)="toggleLogin()"
+
+  >
+    <mat-icon>login</mat-icon>
+    {{auth.isLoggedInUser() ? 'Logout' : 'Login'}}
+  </button>
+</mat-toolbar>
+<router-outlet></router-outlet>

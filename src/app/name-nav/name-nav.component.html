@@ -22,7 +22,6 @@
         <a mat-list-item routerLink="viewchild" routerLink="input">Input Decorator</a>
         <a mat-list-item routerLink="viewchild">Parent & child</a>
       </mat-expansion-panel>
-
       <mat-expansion-panel>
         <mat-expansion-panel-header>
           <mat-panel-title>
@@ -80,11 +79,12 @@
         </mat-expansion-panel-header>
         <a mat-list-item href="" routerLink="dialog" (click)="updatePageTitle('Dialog')">Dialog</a>
         <a mat-list-item href="" routerLink="/store-ngrx" (click)="updatePageTitle('Observable')">Table</a>
+        <a mat-list-item routerLink="/tooltip" (click)="updatePageTitle('tooltip')">Tooltip</a>
       </mat-expansion-panel>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
+    <!-- <mat-toolbar color="primary">
       <button
         type="button"
         aria-label="Toggle sidenav"
@@ -95,8 +95,11 @@
       </button>
       <span>{{pageTitle}}</span>
       <span class="example-spacer"></span>
-      <button class="me-3" mat-flat-button routerLink="/login">Login</button>
-    </mat-toolbar>
+      <button class="me-3" mat-flat-button routerLink="/login">
+        <mat-icon>login</mat-icon>
+        LOGIN
+        </button>
+    </mat-toolbar> -->
     <router-outlet></router-outlet>
     <!-- Add Content Here -->
   </mat-sidenav-content>

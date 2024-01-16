@@ -21,7 +21,8 @@ import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { LoginComponent } from './component/login/login.component';
 import { VerifyEmailComponent } from './component/verify-email/verify-email.component';
 import { ForgotPasswordComponent } from './component/forgot-password/forgot-password.component';
-
+import { dashboardGuard } from './guard/dashboard.guard';
+import { TooltipComponent} from './shared/material/tooltip/tooltip.component';
 const routes: Routes = [
   {path: 'eventbinding', component:EventBindingComponent },
   {path: 'table', component:TableComponent},
@@ -40,18 +41,17 @@ const routes: Routes = [
   {path: 'dialog', component:DialogComponent},
   {path: 'stylebinding', component:StyleBindingComponent},
   {path: 'login', component:LoginComponent},
-  {path: 'dashboard', component:DashboardComponent},
+  {path: 'dashboard', component:DashboardComponent,canActivate:[dashboardGuard]},
   {path: 'register', component:RegisterComponent},
   {path: 'verify-email', component:VerifyEmailComponent},
   {path: 'forgot-password', component : ForgotPasswordComponent},
+  {path: 'tooltip', component:TooltipComponent},
   // {path: 'movies', component: MoviesComponent},
 
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)
-
-  ],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
