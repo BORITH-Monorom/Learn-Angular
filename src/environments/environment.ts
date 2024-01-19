@@ -1,12 +1,12 @@
 export const environment = {
-  prodection:false,
- firebase: {
-    apiKey: "AIzaSyCMCGYsrYgdAO-aBrlDZn35OcAU0AIy0ME",
-    authDomain: "angular-project-379502.firebaseapp.com",
-    projectId: "angular-project-379502",
-    storageBucket: "angular-project-379502.appspot.com",
-    messagingSenderId: "627221130234",
-    appId: "1:627221130234:web:6a13ad2975dcd3d0525243",
-    measurementId: "G-E77ZRD25ZW"
-  }
+  production: false,
+  firebaseConfig : {
+  apiKey: "AIzaSyCzDCQbTknMIpamlo4HTd44p4RqEEnBrKY",
+  authDomain: "even-electron-377007.firebaseapp.com",
+  projectId: "even-electron-377007",
+  storageBucket: "even-electron-377007.appspot.com",
+  messagingSenderId: "245871053950",
+  appId: "1:245871053950:web:dba0928f85f2cf1a1a5c2f",
+  measurementId: "G-8C9F1W9G2K"
+}
 };

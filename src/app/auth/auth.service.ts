@@ -20,7 +20,6 @@ export class AuthService {
     this.fireauth.signInWithEmailAndPassword(email, password).then(() => {
       this.isLoggedIn = true;
       localStorage.setItem('token','true');
-      // this.router.navigate(['/dashboard']);
       this.router.navigate(['/dashboard']);
       alert('login successful');
     }, err => {
@@ -28,21 +27,6 @@ export class AuthService {
       this.router.navigate(['/login']);
     })
   }
-  // login(email: string, password: string){
-  //   this.fireauth.signInWithEmailAndPassword(email, password).then(res => {
-  //     localStorage.setItem('token','true');
-  //     if(res.user?.emailVerified == true) {
-  //     alert('Login Sucessful')
-  //       this.router.navigate(['/dashboard']);
-  //     }else{
-  //       alert('Verify First');
-  //       this.router.navigate(['/verify-email']);
-  //     }
-  //   }, err => {
-  //     alert('Someting went wrong');
-  //     this.router.navigate(['/login']);
-  //   })
-  // }
 
   // register method
   register(email : string, password : string){
@@ -54,17 +38,6 @@ export class AuthService {
       this.router.navigate(['/register']);
     })
   }
-  // register(email : string, password : string){
-  //   this.fireauth.createUserWithEmailAndPassword(email, password).then(res => {
-  //     alert('Registeration Sucessful')
-  //     this.router.navigate(['/login']);
-  //     // this.router.navigate(['/verify-email']);
-  //     this.sendEmailForVerification(res.user);
-  //   }, err => {
-  //     alert(err.message);
-  //     this.router.navigate(['/register']);
-  //   })
-  // }
 
   //sign out
   logout(){

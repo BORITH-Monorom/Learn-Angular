@@ -1,4 +1,13 @@
 {
+  "targets": {
+    "even-electron-377007": {
+      "hosting": {
+        "Learn_Angular": [
+          "even-electron-377007"
+        ]
+      }
+    }
+  },
   "projects": {
     "default": "angular-project-379502"
   }

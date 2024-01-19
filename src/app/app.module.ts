@@ -1,113 +1,58 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { MatTableModule } from '@angular/material/table';
+import {MatTableModule} from '@angular/material/table';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { EventBindingComponent } from './data_binding/event-binding/event-binding.component';
-import { HeaderComponent } from './header/header.component';
-import { TypescriptComponent } from './typescript/typescript.component';
-import { CreateClassComponent } from './data_binding/create-class/create-class.component';
-import { TableComponent } from './table/table.component';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatListModule } from '@angular/material/list';
-import { LoginComponent } from './component/login/login.component';
-import { LayoutModule } from '@angular/cdk/layout';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatListModule} from '@angular/material/list';
+import { LoginComponent } from './shared/login/login.component';
+import {LayoutModule} from '@angular/cdk/layout';
 import { StoreModule } from '@ngrx/store';
 import { reducers } from './shared/store/app.reducer';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { NameNavComponent } from './name-nav/name-nav.component';
+import { StoreNgrxComponent } from './shared/store-ngrx/store-ngrx.component';
+import { FlexLayoutModule} from '@angular/flex-layout';
+import {MatInputModule} from '@angular/material/input';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatExpansionModule } from '@angular/material/expansion';
-import { CommonModule } from '@angular/common';
-import { NgifComponent } from './shared/directive/ngif/ngif/ngif.component';
-import { NgswitchComponent } from './shared/directive/ngswitch/ngswitch/ngswitch.component';
-import { NgclassComponent } from './shared/directive/ngclass/ngclass.component';
-import { MatCardModule } from '@angular/material/card';
-import { NgcontentComponent } from './shared/directive/ngcontent/ngcontent.component';
-import { ChildcontentComponent } from './shared/directive/ngcontent/childcontent/childcontent.component';
-import { NgtemplateComponent } from './shared/directive/ngtemplate/ngtemplate.component';
-import { ViewchildComponent } from './shared/angularcore/viewchild/viewchild.component';
-import { BindingComponent } from './shared/angularcore/binding/binding.component';
-import { ParentComponent } from './shared/angularcore/parent/parent.component';
-import { NgforComponent } from './shared/directive/ngfor/ngfor.component';
-import { ChildComponent } from './shared/lifecycle-hook/child/child.component';
-import { ParentHookComponent } from './shared/lifecycle-hook/parent-hook/parent-hook.component';
-import { InputComponent } from './shared/angularcore/input/input.component';
-import { OutputComponent } from './shared/angularcore/output/output.component';
-import { InputChildComponent } from './shared/angularcore/input/input-child/input-child.component';
-import { OutputChildComponent } from './shared/angularcore/output/output-child/output-child.component';
-import { DialogComponent } from './shared/material/dialog/dialog.component';
-import { MatDialogModule } from '@angular/material/dialog';
-import { DialogExampleComponent } from './shared/material/dialog-example/dialog-example.component';
-import { DialogInjectComponent } from './shared/material/dialog-inject/dialog-inject.component';
-import { ModalComponent } from './shared/modal/modal.component';
-import { StyleBindingComponent } from './data_binding/style-binding/style-binding.component';
-import { AngularFireModule } from '@angular/fire/compat';
-import { environment } from 'src/environments/environment';
-import { RegisterComponent } from './component/register/register.component';
-import { DashboardComponent } from './component/dashboard/dashboard.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { NavbarComponent } from './shared/navbar/navbar.component';
+import { HomeComponent } from './shared/home/home.component';
+import { FooterComponent } from './shared/footer/footer.component';
+import { AboutUsComponent } from './shared/about-us/about-us.component';
+import { ContactUsComponent } from './shared/contact-us/contact-us.component';
+import { NotFoundComponent } from './shared/not-found/not-found.component';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { getAuth, provideAuth } from '@angular/fire/auth';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { DashboardComponent } from './shared/dashboard/dashboard.component';
+import { RegisterComponent } from './shared/register/register.component';
 import { FormsModule } from '@angular/forms';
-import { MatInputModule } from '@angular/material/input';
-import { ForgotPasswordComponent } from './component/forgot-password/forgot-password.component';
-import {VerifyEmailComponent} from './component/verify-email/verify-email.component';
-import { TooltipComponent } from './shared/material/tooltip/tooltip.component';
-import { MatTooltipModule } from '@angular/material/tooltip';
-import { TooltipDirective } from './shared/material/directive/tooltip.directive';
-import { dashboardGuard } from './guard/dashboard.guard';
-import { NavbarComponent } from './navbar/navbar.component';
-
 @NgModule({
   declarations: [
     AppComponent,
-    EventBindingComponent,
-    HeaderComponent,
-    TypescriptComponent,
-    CreateClassComponent,
-    TableComponent,
     LoginComponent,
-    LoginComponent,
-
-    NameNavComponent,
-    NgifComponent,
-    NgswitchComponent,
-    NgclassComponent,
-    NgcontentComponent,
-    ChildcontentComponent,
-    NgtemplateComponent,
-    ViewchildComponent,
-    BindingComponent,
-    ParentComponent,
-    NgforComponent,
-    ChildComponent,
-    ParentHookComponent,
-    InputComponent,
-    OutputComponent,
-    InputChildComponent,
-    OutputChildComponent,
-    DialogComponent,
-    DialogExampleComponent,
-    DialogInjectComponent,
-    ModalComponent,
-    StyleBindingComponent,
-    RegisterComponent,
-    DashboardComponent,
-    ForgotPasswordComponent,
-    VerifyEmailComponent,
-    TooltipComponent,
-    TooltipDirective,
+    StoreNgrxComponent,
     NavbarComponent,
+    HomeComponent,
+    FooterComponent,
+    AboutUsComponent,
+    ContactUsComponent,
+    NotFoundComponent,
+    DashboardComponent,
+    RegisterComponent,
+
   ],
   imports: [
-    MatCardModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MatInputModule,
     MatTableModule,
+    FormsModule,
     MatPaginatorModule,
     MatToolbarModule,
     MatIconModule,
@@ -119,15 +64,12 @@ import { NavbarComponent } from './navbar/navbar.component';
     StoreModule.forRoot(reducers),
     MatSidenavModule,
     MatExpansionModule,
-    CommonModule,
-    MatDividerModule,
-    MatDialogModule,
-    FormsModule,
-    MatInputModule,
-    MatTooltipModule,
-    AngularFireModule.initializeApp(environment.firebase),
+    provideFirebaseApp(() => initializeApp({"projectId":"even-electron-377007","appId":"1:245871053950:web:dba0928f85f2cf1a1a5c2f","storageBucket":"even-electron-377007.appspot.com","apiKey":"AIzaSyCzDCQbTknMIpamlo4HTd44p4RqEEnBrKY","authDomain":"even-electron-377007.firebaseapp.com","messagingSenderId":"245871053950","measurementId":"G-8C9F1W9G2K"})),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore()),
   ],
   providers: [],
   bootstrap: [AppComponent],
+
 })
-export class AppModule {}
+export class AppModule { }
