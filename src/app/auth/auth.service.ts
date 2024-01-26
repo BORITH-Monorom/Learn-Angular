@@ -1,31 +1,46 @@
 import { Injectable } from '@angular/core';
 import {AngularFireAuth} from '@angular/fire/compat/auth';
 import { GoogleAuthProvider, GithubAuthProvider, FacebookAuthProvider} from '@angular/fire/auth'
-import {Router} from '@angular/router'
+import {Router} from '@angular/router';
+import { Observable, map } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-
-  private isLoggedIn = false;
-
-  constructor(private fireauth : AngularFireAuth, private router : Router) { }
-
-  isLoggedInUser() {
-    return this.isLoggedIn;
+  authState$: Observable<firebase.default.User | null>;
+  constructor(
+    private fireauth: AngularFireAuth,
+    private router: Router,
+  ) {
+    this.authState$ = this.fireauth.authState;
   }
-  //login method
-  login(email: string, password: string){
-    this.fireauth.signInWithEmailAndPassword(email, password).then(() => {
-      this.isLoggedIn = true;
-      localStorage.setItem('token','true');
+
+  isAuthenticated(): Observable<boolean> {
+    return this.authState$.pipe(map(user => !!user));
+  }
+
+  login(email: string, password: string): Promise<void> {
+    return this.fireauth.signInWithEmailAndPassword(email, password).then(() => {
+      localStorage.setItem('token', 'true');
       this.router.navigate(['/dashboard']);
-      alert('login successful');
+      alert('Login successful');
     }, err => {
-      alert('Someting went wrong');
+      alert('Something went wrong');
       this.router.navigate(['/login']);
-    })
+    });
+  }
+
+  logout(): Promise<void> {
+    return this.fireauth.signOut().then(() => {
+      localStorage.removeItem('token');
+      const confirmation = confirm('Are you sure?');
+      if (confirmation) {
+        this.router.navigate(['/login']);
+      }
+    }, err => {
+      alert(err.message);
+    });
   }
 
   // register method
@@ -39,19 +54,7 @@ export class AuthService {
     })
   }
 
-  //sign out
-  logout(){
-    this.fireauth.signOut().then(() => {
-      this.isLoggedIn = false;
-      localStorage.removeItem('token');
-      const confirmation = confirm ('are you sure?');
-      if(confirmation){
-        this.router.navigate(['/login'])
-      }
-    }, err =>{
-      alert(err.message);
-    })
-  }
+
 
   //forgot password
   forgotPassword(email : string){

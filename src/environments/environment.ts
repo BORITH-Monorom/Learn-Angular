@@ -1,6 +1,6 @@
 export const environment = {
   production: false,
-  firebaseConfig : {
+  firebase: {
   apiKey: "AIzaSyCzDCQbTknMIpamlo4HTd44p4RqEEnBrKY",
   authDomain: "even-electron-377007.firebaseapp.com",
   projectId: "even-electron-377007",

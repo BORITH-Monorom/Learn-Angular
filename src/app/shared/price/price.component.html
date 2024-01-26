@@ -1,0 +1,25 @@
+
+<div class="row container m-5 mx-auto gap-3" >
+  <div *ngFor="let p of product" class="col card p-0">
+    <div class="card-header">
+      <div class="card-title">{{ p.day }} DAY</div>
+      <div class="card-subtile">{{ p.price | currency : "USD" }}</div>
+    </div>
+    <div class="card-body text-left">
+      <ul class="navbar-nav">
+        <li class="nav-link">Show on the front page</li>
+        <li class="nav-link">Place on the top of Vacancies</li>
+        <li class="nav-link">Highlighted with Premium</li>
+        <li class="nav-link">Special function Auto-Refresh</li>
+        <li class="nav-link">1 Company logo added</li>
+        <li class="nav-link">Free poster design</li>
+      </ul>
+    </div>
+    <div class="batch-btn">
+      <button routerLink="purchase"  mat-button>
+        <mat-icon>shopping_cart</mat-icon>
+        product
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatTableModule } from '@angular/material/table';
@@ -27,7 +27,6 @@ import { ContactUsComponent } from './shared/contact-us/contact-us.component';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getAuth, provideAuth } from '@angular/fire/auth';
-import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { DashboardComponent } from './shared/dashboard/dashboard.component';
 import { RegisterComponent } from './shared/register/register.component';
 import { FormsModule } from '@angular/forms';
@@ -36,6 +35,14 @@ import { CropperDialogComponent } from './component/cropper-dialog/cropper-dialo
 import { ResumeComponent } from './shared/resume/resume.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ImageCropperModule } from 'ngx-image-cropper';
+import { PriceComponent } from './shared/price/price.component';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { AngularFireModule } from '@angular/fire/compat';
+import { environment } from 'src/environments/environment.development';
+import { register } from 'swiper/element/bundle';
+import { PurchaseComponent } from './employer/purchase/purchase.component';
+register();
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,6 +58,8 @@ import { ImageCropperModule } from 'ngx-image-cropper';
     ImageControlComponent,
     CropperDialogComponent,
     ResumeComponent,
+    PriceComponent,
+    PurchaseComponent,
   ],
   imports: [
     CommonModule,
@@ -73,6 +82,7 @@ import { ImageCropperModule } from 'ngx-image-cropper';
     StoreModule.forRoot(reducers),
     MatSidenavModule,
     MatExpansionModule,
+    AngularFireModule.initializeApp(environment.firebase),
     provideFirebaseApp(() =>
       initializeApp({
         projectId: 'even-electron-377007',
@@ -89,5 +99,8 @@ import { ImageCropperModule } from 'ngx-image-cropper';
   ],
   providers: [],
   bootstrap: [AppComponent],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
+  ]
 })
 export class AppModule {}

@@ -1,0 +1,25 @@
+.card{
+  max-width: 250px;
+  min-width: 240px;
+}
+.card-header{
+  background-color: #009eca;
+  text-align:center;
+}
+.card-title{
+  font-size:32px;
+  font-weight: 800;
+  color: #fff;
+}
+.card-subtile{
+font-size: 24px;
+font-weight: 800;
+letter-spacing: 2px;
+color: #fff;
+}
+.nav-link{
+  white-space:nowrap;
+}
+.navbar-nav{
+  padding: 0;
+}

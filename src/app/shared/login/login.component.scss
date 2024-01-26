@@ -1,0 +1,8 @@
+.row{
+    display: flex;
+    justify-content: center;
+    .col{
+        min-width: 400px;
+        max-width: 500px;
+    }
+}

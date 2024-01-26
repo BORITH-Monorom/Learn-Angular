@@ -12,12 +12,12 @@ password: string = '';
 
 constructor(private auth: AuthService){}
 
-
 login(){
   if(this.email == ''){
     alert('please enter email');
     return;
   }
+
   if(this.password == ''){
     alert('please enter password');
     return;
@@ -27,4 +27,7 @@ login(){
   this.email = '';
   this.password = '';
 }
+
+
+
 }

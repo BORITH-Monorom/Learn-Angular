@@ -55,3 +55,16 @@ app-name-nav{
     box-shadow: none !important;
   }
 }
+
+.batch-btn{
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+
+  .mat-mdc-button{
+    padding: 15px;
+    background-color: #009ECA;
+    color: white !important;
+    border-radius: 999px;
+  }
+}

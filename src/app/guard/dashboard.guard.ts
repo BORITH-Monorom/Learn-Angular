@@ -1,9 +1,5 @@
 import { inject} from "@angular/core";
 import { CanActivateFn,Router } from '@angular/router';
-import { AuthService } from 'src/app/auth/auth.service';
-
-
- 
 export const dashboardGuard: CanActivateFn = (route, state) => {
   const token = localStorage.getItem('token');
   const router = inject(Router);
@@ -15,8 +11,6 @@ export const dashboardGuard: CanActivateFn = (route, state) => {
     return false;
   }
 };
-
-
 
 // @Injectable()
 // constructor (private auth : AuthService) {}
