@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
@@ -10,7 +11,7 @@ export class LoginComponent {
 email: string = '';
 password: string = '';
 
-constructor(private auth: AuthService){}
+constructor(private auth: AuthService, private router: Router){}
 
 login(){
   if(this.email == ''){
@@ -22,6 +23,9 @@ login(){
     alert('please enter password');
     return;
   }
+
+  // const redirectUrl = this.router.url;
+  // this.auth.setRedirectUrl(redirectUrl);
 
   this.auth.login(this.email, this.password);
   this.email = '';

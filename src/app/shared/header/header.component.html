@@ -1,41 +1,100 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
-      <img src="/assets/images/logo.png" width="70px" alt="Hrinc Jobs">
+      <img src="/assets/images/logo.png" width="70px" alt="Hrinc Jobs" />
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" routerLinkActive="active" routerLink="/home">Home</a>
+          <a
+            class="nav-link"
+            aria-current="page"
+            [routerLinkActive]="'active_menu'"
+            [routerLink]="'/home'"
+            >Home</a
+          >
         </li>
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" routerLinkActive="active" routerLink="/aboutUs">About us</a>
+          <a
+            class="nav-link"
+            aria-current="page"
+            routerLinkActive="active_menu"
+            routerLink="/aboutUs"
+            >About us</a
+          >
         </li>
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" routerLinkActive="active" routerLink="/contactUs">Contact us</a>
-        </li>
-        <li class="nav-item">
-          <a routerLink="/resume" class="nav-link bg-info text-white border rounded"  >Create CV</a>
-        </li>
-        <li class="nav-item">
-          <a routerLink="/price" class="ms-2 nav-link bg-info text-white border rounded"  >Price</a>
+          <a
+            class="nav-link"
+            aria-current="page"
+            routerLinkActive="active_menu"
+            routerLink="/contactUs"
+            >Contact us</a
+          >
         </li>
       </ul>
 
-
       <ul class="navbar-nav">
-        <li class="nav-item">
-          <button *ngIf="(isAuthenticated$ | async)" mat-button class="bg-info text-white mx-3" routerLink="postJob">Post Job</button>
-        </li> 
-
-        <li class="nav-item">
-          <button *ngIf="!(isAuthenticated$ | async)" (click)="login()" mat-button class="nav-link">Login</button>
+        <li class="nav-item batch-btn">
+          <button routerLinkActive="active" mat-button routerLink="/resume" class="btn_content" *ngIf="!(isAuthenticated$ | async)">
+            <mat-icon>edit_document</mat-icon>
+            <span class="btn_text">Create CV</span>
+            <div class="btn_eff"></div>
+          </button>
         </li>
-        <li class="nav-item">
-          <button *ngIf="(isAuthenticated$ | async)" (click)="logout()" mat-button class="nav-link">Logout</button>
+
+        <li class="nav-item batch-btn">
+          <button routerLinkActive="active" mat-button routerLink="/price"  class="btn_content">
+            <mat-icon>shopping_cart</mat-icon>
+            <span class="btn_text">Price</span>
+            <span class="btn_eff"></span>
+          </button>
+        </li>
+        <li class="nav-item batch-btn">
+          <button
+            *ngIf="isAuthenticated$ | async"
+            mat-button
+            class="btn_content"
+            routerLink="postJob"
+          >
+          <mat-icon>upload</mat-icon>
+          <span class="btn_text">Post Job</span>
+          <span class="btn_eff"></span>
+          </button>
+        </li>
+
+        <li class="nav-item batch-btn-transparent">
+          <button
+            *ngIf="!(isAuthenticated$ | async)"
+            mat-button
+            (click)="login()"
+            class="nav-link"
+          >
+          <mat-icon>login</mat-icon>
+            Login
+          </button>
+        </li>
+        <li class="nav-item batch-btn-transparent">
+          <button
+            *ngIf="isAuthenticated$ | async"
+            mat-button
+            (click)="logout()"
+            class="nav-link"
+          >
+          <mat-icon>logout</mat-icon>
+            Logout
+          </button>
         </li>
       </ul>
     </div>

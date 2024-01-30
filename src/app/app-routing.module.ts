@@ -4,7 +4,6 @@ import { HomeComponent } from './shared/home/home.component';
 import { AboutUsComponent } from './shared/about-us/about-us.component';
 import { ContactUsComponent } from './shared/contact-us/contact-us.component';
 import { RegisterComponent } from './shared/register/register.component';
-import { DashboardComponent } from './shared/dashboard/dashboard.component';
 import { ResumeComponent } from './shared/resume/resume.component';
 import { PriceComponent } from './shared/price/price.component';
 import { LoginComponent } from './shared/login/login.component';
@@ -21,16 +20,17 @@ const routes: Routes = [
   {path: 'resume', component:ResumeComponent},
   {path: 'price', component:PriceComponent},
 
+
   {path: 'login', component:LoginComponent, canActivate:[authGuard]},
   {path: 'register', component:RegisterComponent},
-  {path: 'dashboard', component:DashboardComponent,canActivate:[dashboardGuard]},
+  //employer
+  // {path: 'purchase', component:PurchaseComponent, canActivate:[dashboardGuard]},
 
-  {path: 'price/purchase', component:PurchaseComponent, canActivate:[dashboardGuard]},
-  {path: '**' , component:NotFoundComponent},
+  // {path: '**' , component:NotFoundComponent},
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [ RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

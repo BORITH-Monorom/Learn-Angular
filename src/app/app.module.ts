@@ -13,7 +13,6 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 import { LoginComponent } from './shared/login/login.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { StoreModule } from '@ngrx/store';
 import { reducers } from './shared/store/app.reducer';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatInputModule } from '@angular/material/input';
@@ -27,7 +26,7 @@ import { ContactUsComponent } from './shared/contact-us/contact-us.component';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getAuth, provideAuth } from '@angular/fire/auth';
-import { DashboardComponent } from './shared/dashboard/dashboard.component';
+// import { DashboardComponent } from './shared/dashboard/dashboard.component';
 import { RegisterComponent } from './shared/register/register.component';
 import { FormsModule } from '@angular/forms';
 import { ImageControlComponent } from './component/image-control/image-control.component';
@@ -42,6 +41,12 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment.development';
 import { register } from 'swiper/element/bundle';
 import { PurchaseComponent } from './employer/purchase/purchase.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import { StoreModule } from '@ngrx/store';
+
+import { EmployerRoutingModule } from './employer/employer-routing.module';
+import { EmployerModule } from './employer/employer.module';
+
 register();
 @NgModule({
   declarations: [
@@ -53,16 +58,19 @@ register();
     AboutUsComponent,
     ContactUsComponent,
     NotFoundComponent,
-    DashboardComponent,
+    // DashboardComponent,
     RegisterComponent,
     ImageControlComponent,
     CropperDialogComponent,
     ResumeComponent,
     PriceComponent,
     PurchaseComponent,
+
   ],
   imports: [
+    EmployerModule,
     CommonModule,
+    EmployerRoutingModule,
     ImageCropperModule,
     MatDialogModule,
     BrowserModule,
@@ -79,9 +87,10 @@ register();
     MatListModule,
     LayoutModule,
     FlexLayoutModule,
-    StoreModule.forRoot(reducers),
     MatSidenavModule,
     MatExpansionModule,
+    MatTabsModule,
+    StoreModule.forRoot({}),
     AngularFireModule.initializeApp(environment.firebase),
     provideFirebaseApp(() =>
       initializeApp({

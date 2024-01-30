@@ -1,1 +1,46 @@
-<p>contact-us works!</p>
+<div class="container">
+  <div class="row">
+    <!-- <div class="col-8">
+      <ul class="navbar-nav ">
+        <li class="nav-item" label="First" [ngClass]="{'active-tab': selectedTab ==0}"  (click)="changeTab(0)"  data-bs-toggle="tab"  role="tab"  aria-selected="false"> Content 1 </li>
+        <li class="nav-item" label="Second" [ngClass]="{'active-tab': selectedTab ==1}" (click)="changeTab(1)"  data-bs-toggle="tab" role="tab"  aria-selected="false"> Content 2 </li>
+      </ul>
+    </div> -->
+    <!-- <div class="col-4">
+      <p class="text-center">Details</p>
+      <mat-tab-group class="hj_details" mat-align-tabs="center" [selectedIndex]="selectedTab">
+          <mat-tab >
+            <ul>
+              <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et, sapiente.</li>
+              <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et, sapiente.</li>
+              <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et, sapiente.</li>
+              <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et, sapiente.</li>
+            </ul>
+          </mat-tab>
+          <mat-tab disabled >
+            <ul>
+              <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et, sapiente.</li>
+              <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et, sapiente.</li>
+              <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et, sapiente.</li>
+              <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et, sapiente.</li>
+            </ul>
+          </mat-tab>
+      </mat-tab-group>
+    </div> -->
+    <div class="col-8">
+      <mat-tab-group (selectedTabChange)="changeMainTab($event)">
+        <mat-tab label="First"> Content 1 </mat-tab>
+        <mat-tab label="Second"> Content 2 </mat-tab>
+      </mat-tab-group>
+    </div>
+    <div class="col-4">
+      <nav mat-tab-nav-bar mat-stretch-tabs="true">
+        <p mat-tab-link disabled >Details</p>
+      </nav>
+      <mat-tab-group class="active_details" [selectedIndex]="mainTab" >
+          <mat-tab disabled > detail_1 </mat-tab>
+          <mat-tab disabled> detail_2 </mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+</div>

@@ -12,18 +12,22 @@ import { AuthService } from 'src/app/auth/auth.service';
 
   export class HeaderComponent implements OnInit {
     isAuthenticated$: Observable<boolean>;
-  
+
     constructor(private auth: AuthService, private router: Router) {}
-  
+
     ngOnInit() {
       this.isAuthenticated$ = this.auth.isAuthenticated();
     }
-  
+
     logout() {
       this.auth.logout();
     }
-  
+
     login() {
       this.router.navigate(['/login']);
     }
+
+    // onPrice(){
+    //   this.router.navigate(['/price']);
+    // }
 }
