@@ -43,6 +43,16 @@
             >Contact us</a
           >
         </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            aria-current="page"
+            routerLinkActive="active_menu"
+            routerLink="/dashboard"
+            *ngIf="(isAuthenticated$ | async)"
+            >Dashboard</a
+          >
+        </li>
       </ul>
 
       <ul class="navbar-nav">
@@ -57,20 +67,21 @@
         <li class="nav-item batch-btn">
           <button routerLinkActive="active" mat-button routerLink="/price"  class="btn_content">
             <mat-icon>shopping_cart</mat-icon>
-            <span class="btn_text">Price</span>
-            <span class="btn_eff"></span>
+              <span class="btn_text">Price</span>
+              <span class="btn_eff"></span>
           </button>
         </li>
         <li class="nav-item batch-btn">
-          <button
-            *ngIf="isAuthenticated$ | async"
-            mat-button
-            class="btn_content"
-            routerLink="postJob"
-          >
-          <mat-icon>upload</mat-icon>
-          <span class="btn_text">Post Job</span>
-          <span class="btn_eff"></span>
+            <button
+              *ngIf="isAuthenticated$ | async"
+              mat-button
+              class="btn_content"
+              routerLink="postJob"
+              routerLinkActive="active"
+            >
+              <mat-icon>upload</mat-icon>
+              <span class="btn_text">Post Job</span>
+              <span class="btn_eff"></span>
           </button>
         </li>
 
@@ -85,14 +96,14 @@
             Login
           </button>
         </li>
+
         <li class="nav-item batch-btn-transparent">
           <button
             *ngIf="isAuthenticated$ | async"
             mat-button
             (click)="logout()"
-            class="nav-link"
-          >
-          <mat-icon>logout</mat-icon>
+            class="nav-link">
+            <mat-icon>logout</mat-icon>
             Logout
           </button>
         </li>

@@ -1,32 +1,5 @@
-<div class="container">
+<!-- <div class="container">
   <div class="row">
-    <!-- <div class="col-8">
-      <ul class="navbar-nav ">
-        <li class="nav-item" label="First" [ngClass]="{'active-tab': selectedTab ==0}"  (click)="changeTab(0)"  data-bs-toggle="tab"  role="tab"  aria-selected="false"> Content 1 </li>
-        <li class="nav-item" label="Second" [ngClass]="{'active-tab': selectedTab ==1}" (click)="changeTab(1)"  data-bs-toggle="tab" role="tab"  aria-selected="false"> Content 2 </li>
-      </ul>
-    </div> -->
-    <!-- <div class="col-4">
-      <p class="text-center">Details</p>
-      <mat-tab-group class="hj_details" mat-align-tabs="center" [selectedIndex]="selectedTab">
-          <mat-tab >
-            <ul>
-              <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et, sapiente.</li>
-              <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et, sapiente.</li>
-              <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et, sapiente.</li>
-              <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et, sapiente.</li>
-            </ul>
-          </mat-tab>
-          <mat-tab disabled >
-            <ul>
-              <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et, sapiente.</li>
-              <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et, sapiente.</li>
-              <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et, sapiente.</li>
-              <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et, sapiente.</li>
-            </ul>
-          </mat-tab>
-      </mat-tab-group>
-    </div> -->
     <div class="col-8">
       <mat-tab-group (selectedTabChange)="changeMainTab($event)">
         <mat-tab label="First"> Content 1 </mat-tab>
@@ -43,4 +16,36 @@
       </mat-tab-group>
     </div>
   </div>
-</div>
+</div> -->
+<form [formGroup]="contactForm" (ngSubmit)="submitForm()" action="">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 p-4 text-center">
+        <h1 class="">Contact Us</h1>
+        <p>We do the best we can</p>
+      </div>
+      <mat-form-field class="col-6" appearance="outline">
+        <mat-label>Full Name</mat-label>
+        <input matInput type="text" formControlName="contact" required>
+      </mat-form-field>
+      <mat-form-field class="col-6" appearance="outline">
+        <mat-label>Enter your email</mat-label>
+        <input matInput placeholder="pat@example.com" formControlName="email" required>
+        <!-- Display validation error for email -->
+        <mat-error *ngIf="contactForm.get('email')!.invalid && (contactForm.get('email')!.dirty || contactForm.get('email')!.touched)">
+          <span *ngIf="contactForm.get('email')!.errors?.['required']">Email is required</span>
+          <span *ngIf="contactForm.get('email')!.errors?.['email']">Not a valid email</span>
+        </mat-error>
+        <!-- <mat-error *ngIf="contactForm.get('email')!.hasError('required')">Email is required</mat-error> -->
+      </mat-form-field>
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>Leave a comment</mat-label>
+        <textarea matInput placeholder="Ex. It makes me feel..." formControlName="comment" required></textarea>
+      </mat-form-field>
+      <div class="col-12 text-center">
+        <button mat-flat-button [ngClass]="{'btn_contact': contactForm.valid, 'btn_contact_disabled': !contactForm.valid}" class="rounded-pill px-4" [disabled]="!contactForm.valid" >Submit</button>
+        <button mat-flat-button  class="ms-3 border bg-body-tertiary rounded-pill px-4 " (click)="onClear()">Clear</button>
+      </div>
+    </div>
+  </div>
+</form>

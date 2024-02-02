@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { ImageControlComponent } from 'src/app/component/image-control/image-control.component';
-
 
 @Component({
   selector: 'app-resume',
@@ -11,5 +9,11 @@ export class ResumeComponent {
 imageReady(blob: Blob) {
 console.log(blob)
 }
-
+phoneNumber='';
+sureName='';
+profession= '';
+value = '';
+firstName='';
+country= 'Cambodia';
+city='Phnom Penh';
 }

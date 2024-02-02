@@ -8,9 +8,7 @@ import { ResumeComponent } from './shared/resume/resume.component';
 import { PriceComponent } from './shared/price/price.component';
 import { LoginComponent } from './shared/login/login.component';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
-import { dashboardGuard } from './guard/dashboard.guard';
 import { authGuard } from './guard/auth.guard';
-import { PurchaseComponent } from './employer/purchase/purchase.component';
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   // {path: 'home',redirectTo: '/', pathMatch: 'full'},
@@ -19,14 +17,10 @@ const routes: Routes = [
   {path: 'contactUs', component:ContactUsComponent},
   {path: 'resume', component:ResumeComponent},
   {path: 'price', component:PriceComponent},
-
-
+  {path:'employer', loadChildren: () => import('./employer/employer.module').then(m => m.EmployerModule)},
   {path: 'login', component:LoginComponent, canActivate:[authGuard]},
   {path: 'register', component:RegisterComponent},
-  //employer
-  // {path: 'purchase', component:PurchaseComponent, canActivate:[dashboardGuard]},
-
-  // {path: '**' , component:NotFoundComponent},
+  {path: '**' , component:NotFoundComponent},
 ];
 
 @NgModule({

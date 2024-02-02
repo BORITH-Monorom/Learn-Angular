@@ -1,23 +1,12 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
-import { MatTableModule } from '@angular/material/table';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatListModule } from '@angular/material/list';
 import { LoginComponent } from './shared/login/login.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { reducers } from './shared/store/app.reducer';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MatInputModule } from '@angular/material/input';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatExpansionModule } from '@angular/material/expansion';
 import { HeaderComponent } from './shared/header/header.component';
 import { HomeComponent } from './shared/home/home.component';
 import { FooterComponent } from './shared/footer/footer.component';
@@ -26,28 +15,29 @@ import { ContactUsComponent } from './shared/contact-us/contact-us.component';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getAuth, provideAuth } from '@angular/fire/auth';
-// import { DashboardComponent } from './shared/dashboard/dashboard.component';
 import { RegisterComponent } from './shared/register/register.component';
-import { FormsModule } from '@angular/forms';
 import { ImageControlComponent } from './component/image-control/image-control.component';
 import { CropperDialogComponent } from './component/cropper-dialog/cropper-dialog.component';
 import { ResumeComponent } from './shared/resume/resume.component';
-import {MatDialogModule} from '@angular/material/dialog';
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { PriceComponent } from './shared/price/price.component';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment.development';
 import { register } from 'swiper/element/bundle';
 import { PurchaseComponent } from './employer/purchase/purchase.component';
-import {MatTabsModule} from '@angular/material/tabs';
 import { StoreModule } from '@ngrx/store';
-
 import { EmployerRoutingModule } from './employer/employer-routing.module';
 import { EmployerModule } from './employer/employer.module';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { counterReducer } from './shared/store/counter.reducer';
+import { MaterialModule } from './Material.Module';
+import { TestModule } from './a_test/test.module';
+import { BtncounterComponent } from './a_test/btncounter/btncounter.component';
+import { CounterDisplayComponent } from './a_test/counter-display/counter-display.component';
 
 register();
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,13 +48,14 @@ register();
     AboutUsComponent,
     ContactUsComponent,
     NotFoundComponent,
-    // DashboardComponent,
     RegisterComponent,
     ImageControlComponent,
     CropperDialogComponent,
     ResumeComponent,
     PriceComponent,
     PurchaseComponent,
+    CounterDisplayComponent,
+    BtncounterComponent,
 
   ],
   imports: [
@@ -72,25 +63,15 @@ register();
     CommonModule,
     EmployerRoutingModule,
     ImageCropperModule,
-    MatDialogModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatInputModule,
-    MatTableModule,
-    FormsModule,
-    MatPaginatorModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatButtonModule,
-    MatDividerModule,
-    MatListModule,
     LayoutModule,
     FlexLayoutModule,
-    MatSidenavModule,
-    MatExpansionModule,
-    MatTabsModule,
-    StoreModule.forRoot({}),
+    NgxSpinnerModule,
+    MaterialModule,
+    TestModule,
+    StoreModule.forRoot({counter:counterReducer}),
     AngularFireModule.initializeApp(environment.firebase),
     provideFirebaseApp(() =>
       initializeApp({

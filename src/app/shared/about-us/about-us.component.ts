@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-about-us',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./about-us.component.scss']
 })
 export class AboutUsComponent {
+
+// playcounter!:number;
+// ngOnInit(): void {
+//     this.store.select('counter').subscribe(data => {
+//       this.playcounter = data.counter;
+//     })
+// }
 
 }
