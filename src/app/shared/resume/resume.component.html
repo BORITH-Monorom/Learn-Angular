@@ -8,8 +8,8 @@
     <div class="row justify-content-end row-cols-2">
       <div class="col-5">
         <mat-form-field class="w-100" appearance="outline">
-          <mat-label>First Name</mat-label>
-          <input matInput type="text" [(ngModel)]="firstName">
+          <mat-label>{{"firstName" | translate}}</mat-label>
+          <input matInput type="text" [(ngModel)]="firstName"  required>
           <button *ngIf="firstName" matSuffix mat-icon-button aria-label="Clear" (click)="firstName=''">
             <mat-icon>close</mat-icon>
           </button>
@@ -17,8 +17,8 @@
       </div>
       <div class="col-5">
         <mat-form-field class="w-100" appearance="outline">
-          <mat-label>Surname</mat-label>
-          <input matInput type="text" [(ngModel)]="sureName">
+          <mat-label>{{"sureName" | translate}}</mat-label>
+          <input matInput type="text" [(ngModel)]="sureName"  required>
           <button *ngIf="sureName" matSuffix mat-icon-button aria-label="Clear" (click)="sureName=''">
             <mat-icon>close</mat-icon>
           </button>
@@ -26,8 +26,8 @@
       </div>
       <div class="col-10">
         <mat-form-field class="w-100" appearance="outline">
-          <mat-label>Profession</mat-label>
-          <input matInput type="text" [(ngModel)]="profession">
+          <mat-label>{{"profession" | translate}}</mat-label>
+          <input matInput type="text" [(ngModel)]="profession"  required>
           <button *ngIf="profession" matSuffix mat-icon-button aria-label="Clear" (click)="profession=''">
             <mat-icon>close</mat-icon>
           </button>
@@ -35,8 +35,8 @@
       </div>
       <div class="col-5">
         <mat-form-field class="w-100" appearance="outline">
-          <mat-label>Phone number</mat-label>
-          <input matInput type="text" [(ngModel)]="phoneNumber">
+          <mat-label>{{"phone" | translate}}</mat-label>
+          <input matInput type="text" [(ngModel)]="phoneNumber"  required>
           <button *ngIf="phoneNumber" matSuffix mat-icon-button aria-label="Clear" (click)="phoneNumber=''">
             <mat-icon>close</mat-icon>
           </button>
@@ -44,8 +44,8 @@
       </div>
       <div class="col-5">
         <mat-form-field class="w-100" appearance="outline">
-          <mat-label>Email Address</mat-label>
-          <input matInput type="text" [(ngModel)]="value">
+          <mat-label>{{"yourEmail" | translate}}</mat-label>
+          <input matInput type="text" [(ngModel)]="value"  required >
           <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
             <mat-icon>close</mat-icon>
           </button>
@@ -53,7 +53,7 @@
       </div>
       <div class="col-5">
         <mat-form-field class="w-100" appearance="outline">
-          <mat-label>Country</mat-label>
+          <mat-label>{{"country" | translate}}</mat-label>
           <input matInput type="text" [(ngModel)]="country">
           <button *ngIf="country" matSuffix mat-icon-button aria-label="Clear" (click)="country=''">
             <mat-icon>close</mat-icon>

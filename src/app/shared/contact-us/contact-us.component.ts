@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from 'src/app/component/dialog/dialog.component';
 
 @Component({
   selector: 'app-contact-us',
@@ -9,7 +11,7 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from
 export class ContactUsComponent implements OnInit {
   contactForm: FormGroup;
 
-  constructor(private fb : FormBuilder){}
+  constructor(private fb : FormBuilder, private dialog:MatDialog ){}
   // SETLECT TABS
   // mainTab = 0;
   // changeMainTab($event:any) {
@@ -32,6 +34,20 @@ export class ContactUsComponent implements OnInit {
     }
     return null;
   }
+openDialog(){
+  let _popup =this.dialog.open(DialogComponent,{
+    width:'500px',
+    enterAnimationDuration: '250ms',
+    exitAnimationDuration: '250ms',
+    data:{
+      title: 'Contact Us',
+      content: 'Thank you for contacting us. We will get back to you soon.'
+    }
+  });
+  _popup.afterClosed().subscribe(item => {
+    console.log(item);
+  })
+}
 onClear(){
   this.contactForm.reset();
 }

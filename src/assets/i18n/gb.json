@@ -1,0 +1,22 @@
+{
+  "home": "Home",
+  "about": "About",
+  "contact": "Contact",
+  "language": "English",
+  "login": "Login",
+  "logout": "Logout",
+
+  "CV": "Create CV",
+  "price": "Price",
+
+  "firstName": "First Name",
+  "sureName": "Surename",
+  "fullName": "Full Name",
+  "profession": "Profession",
+  "phone": "Phone Number",
+  "yourEmail": "Your Email",
+  "country" : "Country",
+  "city" : "City",
+  "email": "Enter Your email",
+  "comment": "Leave a comment"
+}

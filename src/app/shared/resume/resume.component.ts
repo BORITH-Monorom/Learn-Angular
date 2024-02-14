@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   templateUrl: './resume.component.html',
   styleUrls: ['./resume.component.scss']
 })
-export class ResumeComponent {
+export class ResumeComponent{
 imageReady(blob: Blob) {
 console.log(blob)
 }

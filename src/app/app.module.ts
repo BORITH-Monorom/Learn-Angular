@@ -35,9 +35,14 @@ import { MaterialModule } from './Material.Module';
 import { TestModule } from './a_test/test.module';
 import { BtncounterComponent } from './a_test/btncounter/btncounter.component';
 import { CounterDisplayComponent } from './a_test/counter-display/counter-display.component';
-
+import { DialogComponent } from './component/dialog/dialog.component';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader} from '@ngx-translate/http-loader'
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 register();
-
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http)
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,6 +61,7 @@ register();
     PurchaseComponent,
     CounterDisplayComponent,
     BtncounterComponent,
+    DialogComponent,
 
   ],
   imports: [
@@ -71,6 +77,14 @@ register();
     NgxSpinnerModule,
     MaterialModule,
     TestModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      }
+    }),
     StoreModule.forRoot({counter:counterReducer}),
     AngularFireModule.initializeApp(environment.firebase),
     provideFirebaseApp(() =>
@@ -94,3 +108,5 @@ register();
   ]
 })
 export class AppModule {}
+
+
