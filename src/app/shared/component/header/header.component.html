@@ -1,0 +1,133 @@
+<nav class="">
+  <div class="hj-container">
+
+      <div class="flex items-center justify-between">
+        <ul class="flex">
+        <li class="p-3">
+          <img src="/assets/images/logo.png" width="70px" alt="Hrinc Jobs" />
+        </li>
+        <li class="p-3">
+          <a
+            class=""
+            aria-current="page"
+            [routerLinkActive]="'active_menu'"
+            [routerLink]="'/home'"
+            >{{"home" | translate}}</a
+          >
+        </li>
+        <li class="p-3">
+          <a
+            class=""
+            aria-current="page"
+            routerLinkActive="active_menu"
+            routerLink="/aboutUs"
+            >{{"about" | translate}}</a
+          >
+        </li>
+        <li class="p-3">
+          <a
+            class=""
+            aria-current="page"
+            routerLinkActive="active_menu"
+            routerLink="/contactUs"
+            >{{"contact" | translate}}</a
+          >
+        </li>
+        <li class="p-3">
+          <a
+            class=""
+            aria-current="page"
+            routerLinkActive="active_menu"
+            routerLink="/dashboard"
+            *ngIf="isAuthenticated$ | async"
+            >Dashboard</a
+          >
+        </li>
+      </ul>
+
+      <ul class="flex items-center">
+        <li class="">
+          <button mat-button [matMenuTriggerFor]="menu">
+            <!-- <mat-icon>language</mat-icon> -->
+
+            <span
+            *ngIf="country"
+            [ngClass]="country"></span>
+
+            {{'language' | translate}}</button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item (click)="switchLang('kh')">
+                <span class="fi fi-kh"></span>
+                Khmer</button>
+              <button mat-menu-item (click)="switchLang('gb')">
+                <span class="fi fi-gb"></span>
+                English</button>
+            </mat-menu>
+        </li>
+        <li class=" batch-btn">
+          <button
+            routerLinkActive="active"
+            mat-button
+            routerLink="/resume"
+            class="btn_content"
+            *ngIf="!(isAuthenticated$ | async)"
+          >
+            <mat-icon>edit_document</mat-icon>
+            <span class="btn_text">{{'CV' | translate}}</span>
+            <div class="btn_eff"></div>
+          </button>
+        </li>
+        <li class=" batch-btn">
+          <button
+            routerLinkActive="active"
+            mat-button
+            routerLink="/price"
+            class="btn_content"
+          >
+            <mat-icon>shopping_cart</mat-icon>
+            <span class="btn_text">{{'price' | translate}}</span>
+            <span class="btn_eff"></span>
+          </button>
+        </li>
+        <li class=" batch-btn">
+          <button
+            *ngIf="isAuthenticated$ | async"
+            mat-button
+            class="btn_content"
+            routerLink="postJob"
+            routerLinkActive="active"
+          >
+            <mat-icon>upload</mat-icon>
+            <span class="btn_text">Post Job</span>
+            <span class="btn_eff"></span>
+          </button>
+        </li>
+
+        <li class=" batch-btn-transparent">
+          <button
+            *ngIf="!(isAuthenticated$ | async)"
+            mat-button
+            (click)="login()"
+            class=""
+          >
+            <mat-icon>login</mat-icon>
+            {{"login" | translate}}
+          </button>
+        </li>
+
+        <li class=" batch-btn-transparent">
+          <button
+            *ngIf="isAuthenticated$ | async"
+            mat-button
+            (click)="logout()"
+            class=""
+          >
+            <mat-icon>logout</mat-icon>
+            {{"logout" | translate}}
+          </button>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</nav>

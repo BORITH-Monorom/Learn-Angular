@@ -1,22 +1,28 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes} from '@angular/router';
-import { PostJobComponent } from './post-job/post-job.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+
 import { dashboardGuard } from '../guard/dashboard.guard';
-import { PurchaseComponent } from './purchase/purchase.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { PostJobComponent } from './components/post-job/post-job.component';
+import { PurchaseComponent } from './components/purchase/purchase.component';
+import { NotFoundComponent } from '../shared/component/not-found/not-found.component';
+
 // import { NotFoundComponent } from '../shared/not-found/not-found.component';
 
 const routes: Routes = [
   {
-    path: '', canActivate: [dashboardGuard],children:[
+    path: '',
+    canActivate: [dashboardGuard],
+    children:[
+      {path: '', redirectTo: '/home', pathMatch: 'full'},
       {path: 'postJob', component:PostJobComponent,},
       {path: 'dashboard', component:DashboardComponent,},
-      {path: 'purchase', component:PurchaseComponent}
+      {path: 'purchase/:productName', component:PurchaseComponent},
+      {path: '**' , component:NotFoundComponent},
     ]
   }
 ];
-// {path: '**' , component:NotFoundComponent},
 
 @NgModule({
   declarations: [],

@@ -1,0 +1,12 @@
+<mat-form-field *ngIf="show">
+  <mat-label>{{placeholder}}</mat-label>
+  <input matInput [type]="inputType">
+  <mat-error>{{error}}</mat-error>
+</mat-form-field>
+
+<ng-container #show></ng-container>
+<mat-form-field>
+  <mat-label>{{placeholder}}</mat-label>
+  <input matInput [type]="inputType">
+  <mat-error>{{error}}</mat-error>
+</mat-form-field>

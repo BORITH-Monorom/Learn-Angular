@@ -1,0 +1,14 @@
+<div class="container">
+
+<h1 mat-dialog-title>{{dialogTitle.title}}</h1>
+<div mat-dialog-content>Name: {{dialogContent.firstName}} {{dialogContent.sureName}}</div>
+<div mat-dialog-content>profession: {{dialogContent.profession}}</div>
+<div mat-dialog-content>Phone Number: {{dialogContent.phoneNumber}}</div>
+<div mat-dialog-content>email: {{dialogContent.email}}</div>
+<div mat-dialog-content>country: {{dialogContent.country}}</div>
+<div mat-dialog-content>city: {{dialogContent.city}}</div>
+
+<div mat-dialog-action class="p-2">
+  <button mat-flat-button color="primary" (click)="close()">Close</button>
+</div>
+</div>

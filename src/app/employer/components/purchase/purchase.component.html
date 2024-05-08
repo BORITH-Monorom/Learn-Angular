@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row justify-content-center align-items-center">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>{{title}}</mat-card-title>
+        <img src="{{img}}" class="my-3" height="100px" alt="" />
+      </mat-card-header>
+      <button>back</button>
+      <div class="p-5 col-6 ">
+        <h1>{{title}}</h1>
+        <button mat-raised-button color="primary" >add to cart</button>
+      </div>
+    </mat-card>
+    </div>
+  </div>
+<app-price (purchaseEvent)="onPurchase($event)"></app-price>

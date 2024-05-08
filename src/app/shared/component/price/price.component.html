@@ -1,0 +1,17 @@
+
+<div class="row container m-5 mx-auto gap-3">
+  <div *ngFor="let p of product" class="col card p-0 ">
+    <div class="card-header">
+      <div class="card-title">{{ p.name }}</div>
+      <img src="{{ p.img }}" class="my-3" height="100px" alt="" />
+      <!-- <div class="card-subtitle">{{. p.day }} </div> -->
+      <div class="card-title">{{ p.price | currency : "USD" }}</div>
+    </div>
+    <div class="batch-btn py-3">
+      <button class="px-3" (click)="onPurchase(p.name,p.img)" mat-button>
+        <mat-icon>shopping_cart</mat-icon>
+        Buy Now
+      </button>
+    </div>
+  </div>
+</div>

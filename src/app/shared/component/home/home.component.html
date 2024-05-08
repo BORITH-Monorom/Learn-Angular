@@ -1,0 +1,24 @@
+<app-banner-slide></app-banner-slide>
+<div class="hj-container hj-same-section-padding">
+<div class="hj-card p-3f">
+  <app-mat-dropdown [placeholder]="'Username'" [error]="'Username is required'" [inputType]="'text'"></app-mat-dropdown>
+  <app-mat-dropdown [placeholder]="'Email'" [error]="'Email is required'" [inputType]="'email'"></app-mat-dropdown>
+  <app-mat-dropdown [placeholder]="'Password'" [error]="'Email is Password'" [inputType]="'password'"></app-mat-dropdown>
+</div>
+
+<div>
+  <div class="row h-100">
+    <div class="col-5 bg-primary">
+      <div class="hj-container-full">
+        <div class="hj-container hj-card white-bg">
+          <h2 class="hj-card-title">Employer Who Are Hiring</h2>
+        </div>
+        <div class="hj-image-leader-wrapper">
+          <div class="hj-shadow-hover" [ngClass]="key == 'zone23'? 'hj-span4': 'hj-image-leading-emp'" *ngFor="let key of getKeys(zoneResult)"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-7 bg-secondary"></div>
+  </div>
+</div>
+<app-footer *ngIf="show"></app-footer>

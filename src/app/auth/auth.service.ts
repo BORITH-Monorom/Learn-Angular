@@ -3,6 +3,7 @@ import {AngularFireAuth} from '@angular/fire/compat/auth';
 import { GoogleAuthProvider, GithubAuthProvider, FacebookAuthProvider} from '@angular/fire/auth'
 import {Router} from '@angular/router';
 import { Observable, map } from 'rxjs';
+import Swal from 'sweetalert2';
 @Injectable({
   providedIn: 'root'
 })
@@ -11,8 +12,7 @@ export class AuthService {
   authState$: Observable<firebase.default.User | null>;
   constructor(
     private fireauth: AngularFireAuth,
-    private router: Router,
-  ) {
+    private router: Router,){
     this.authState$ = this.fireauth.authState;
   }
 
@@ -24,22 +24,46 @@ export class AuthService {
     return this.fireauth.signInWithEmailAndPassword(email, password).then(() => {
       localStorage.setItem('token', 'true');
       this.router.navigate(['/dashboard']);
-      // alert('Login successful');
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "bottom-start",
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        }
+      });
+      Toast.fire({
+        icon: "success",
+        title: "Signed in successfully"
+      });
     }, err => {
       this.router.navigate(['/login']);
+      alert('Login fail');
+
     });
   }
 
-  logout(): Promise<void> {
-    return this.fireauth.signOut().then(() => {
-      localStorage.removeItem('token');
-      const confirmation = confirm('Are you sure?');
-      if (confirmation) {
+  async logout(): Promise<void> {
+    const confirmation = await Swal.fire({
+      text: "Are you sure you want to logout?",
+      icon: "warning",
+      showCancelButton: true,
+      cancelButtonText: "No",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes",
+    })
+    if (confirmation.isConfirmed){
+      return this.fireauth.signOut().then( () => {
+        localStorage.removeItem('token');
         this.router.navigate(['/login']);
-      }
-    }, err => {
-      alert(err.message);
-    });
+      }, err => {
+        alert(err.message);
+      });
+    }
+
   }
 
   // register method

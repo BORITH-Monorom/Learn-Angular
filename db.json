@@ -1,19 +1,28 @@
+
 {
-  "posts": [
-    {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
+  "CountryList": [
+    {"id": 1,"country": "Cambodia"},
+    {"id": 2,"country": "Thailand"},
+    {"id": 3,"country": "Laos"},
+    {"id": 4,"country": "Vietnam"}
   ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
+  "LocationList": [
+    {"id": 1, "country": "Cambodia", "location": "Phnom Penh"},
+    {"id": 2, "country": "Cambodia", "location": "battambang"},
+    {"id": 3, "country": "Cambodia", "location": "Kandal"},
+    {"id": 4, "country": "Cambodia", "location": "Svay Rieng"},
+    {"id": 5, "country": "Thailand", "location": "bankkok"},
+    {"id": 6, "country": "Thailand", "location": "pataya"},
+    {"id": 7, "country": "Thailand", "location": "ThaiCity"}
   ],
-  "profile": {
-    "name": "typicode"
-  }
+   "profile": {"name": "typicode"},
+  "site-statistics": {"total_employers": 6042,"vaccancies_jobs": 120,"jobs_impression": 120,"site_visited": 120,"jobs_view": 120},
+  "ads-banner":[
+    {"id":1, "image":"https://placehold.co/1200x390/blue/white"},
+    {"id":2, "image":"https://placehold.co/1200x390/green/white"},
+    {"id":3, "image":"https://placehold.co/1200x390/orange/white"},
+    {"id":4, "image":"https://placehold.co/1200x390/red/white"},
+    {"id":5, "image":"https://placehold.co/1200x390/yellow/white"}
+  ]
 }
+

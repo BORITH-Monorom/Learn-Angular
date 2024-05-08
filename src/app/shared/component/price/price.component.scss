@@ -1,0 +1,32 @@
+.card{
+  max-width: 250px;
+  min-width: 240px;
+  transition: .1s ease-out;
+
+}
+.card:hover{
+  box-shadow: 2px 2px 10px #ddd;
+  transition: .1s ease-in;
+  transform:scale(1.02,1.02);
+}
+.card-header{
+  background-color: #0d4f61;
+  text-align:center;
+}
+.card-title{
+  font-size:32px;
+  font-weight: 800;
+  color: #fff;
+}
+.card-subtitle{
+font-size: 24px;
+font-weight: 800;
+letter-spacing: 2px;
+color: #fff;
+}
+.nav-link{
+  white-space:nowrap;
+}
+.navbar-nav{
+  padding: 0;
+}

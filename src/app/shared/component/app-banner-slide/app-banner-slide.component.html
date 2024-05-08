@@ -1,0 +1,5 @@
+<swiper-container class="hj-container-full hj-slide-banner" slides-per-view = "1"  loop="true" navigation="true" autoplay="true" speed="500">
+  <swiper-slide  class="slide" *ngFor="let slide of slides">
+      <img [src]="slide.image" class="slide" alt="">
+    </swiper-slide>
+  </swiper-container>

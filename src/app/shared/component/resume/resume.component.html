@@ -1,0 +1,178 @@
+<form action="" [formGroup]="contactForm">
+  <div class="container p-5">
+    <div class="d-flex">
+      <div class="row justify-content-start">
+        <div class="col-2">
+          <app-image-control
+            class="w-100"
+            [width]="150"
+            [height]="150"
+            (imageReady)="imageReady($event)"
+          ></app-image-control>
+        </div>
+      </div>
+      <div class="row justify-content-end row-cols-2">
+        <div class="col-5">
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>{{ "firstName" | translate }}</mat-label>
+            <input
+              matInput
+              type="text"
+              [(ngModel)]="firstName"
+              formControlName="firstName"
+              required
+            />
+            <button
+              *ngIf="firstName"
+              matSuffix
+              mat-icon-button
+              aria-label="Clear"
+              (click)="firstName = ''"
+            >
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+        <div class="col-5">
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>{{ "sureName" | translate }}</mat-label>
+            <input
+              matInput
+              type="text"
+              [(ngModel)]="sureName"
+              formControlName="sureName"
+              required
+            />
+            <button
+              *ngIf="sureName"
+              matSuffix
+              mat-icon-button
+              aria-label="Clear"
+              (click)="sureName = ''"
+            >
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+        <div class="col-10">
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>{{ "profession" | translate }}</mat-label>
+            <input
+              matInput
+              type="text"
+              [(ngModel)]="profession"
+              formControlName="profession"
+              required
+            />
+            <button
+              *ngIf="profession"
+              matSuffix
+              mat-icon-button
+              aria-label="Clear"
+              (click)="profession = ''"
+            >
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+        <div class="col-5">
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>{{ "phone" | translate }}</mat-label>
+            <input
+              matInput
+              type="text"
+              [(ngModel)]="phoneNumber"
+              formControlName="phoneNumber"
+              required
+            />
+            <button
+              *ngIf="phoneNumber"
+              matSuffix
+              mat-icon-button
+              aria-label="Clear"
+              (click)="phoneNumber = ''"
+            >
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+        <div class="col-5">
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>{{ "yourEmail" | translate }}</mat-label>
+            <input
+              matInput
+              type="text"
+              [(ngModel)]="email"
+              formControlName="email"
+              required
+            />
+            <button
+              *ngIf="email"
+              matSuffix
+              mat-icon-button
+              aria-label="Clear"
+              (click)="email = ''"
+            >
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+        <div class="col-5">
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>{{ "country" | translate }}</mat-label>
+            <input
+              matInput
+              type="text"
+              [(ngModel)]="country"
+              formControlName="country"
+              required
+            />
+            <button
+              *ngIf="country"
+              matSuffix
+              mat-icon-button
+              aria-label="Clear"
+              (click)="country = ''"
+            >
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+        <div class="col-5">
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Location</mat-label>
+            <input
+              matInput
+              type="text"
+              [(ngModel)]="city"
+              formControlName="city"
+              required
+            />
+            <button
+              *ngIf="city"
+              matSuffix
+              mat-icon-button
+              aria-label="Clear"
+              (click)="city = ''"
+            >
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+        <div class="col-5">
+          <button
+            class="w-100"
+            mat-raised-button
+            color="primary"
+            (click)="onPreview()"
+          >
+            Preview
+          </button>
+        </div>
+        <div class="col-5">
+          <button class="w-100" mat-raised-button color="primary">Next</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

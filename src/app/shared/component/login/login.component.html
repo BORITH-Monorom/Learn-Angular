@@ -1,0 +1,42 @@
+<div class="hj-container hj-same-section-padding ">
+  <div class="row mt-5 ">
+
+      <div class="hj-card shadow">
+          <form class="w-1/2 p-5">
+            <div>
+
+              <div class="mb-3">
+                <h4 class="text-start">Login</h4>
+              </div>
+            <div class="flex space-x-4">
+                <mat-form-field class="flex-1">
+                  <mat-label>Email address</mat-label>
+                  <input matInput type="email" name="email" [(ngModel)]="email">
+                </mat-form-field>
+
+                <mat-form-field class="flex-1">
+                  <mat-label>Password</mat-label>
+                  <input matInput type="password" name="password" [(ngModel)]="password">
+                </mat-form-field>
+            </div>
+
+            <button mat-raised-button color="primary" type="button" class="mat-mdc-button px-4 " (click)="login()"><mat-icon>login</mat-icon> Login</button>
+            <div class="flex justify-between text-center my-4">
+              <div class="col-md-6">
+                <a routerLink="/register" class="nav-link text-primary">Need Account ? <span class="text-danger">register</span></a>
+              </div>
+              <div class="col-md-6">
+                  <a class="nav-link text-primary">Forgot Password ?</a>
+              </div>
+            </div>
+            <ngx-spinner
+            bdColor="rgba(0, 0, 0, 1)"
+            template="<img src='https://media.giphy.com/media/o8igknyuKs6aY/giphy.gif' />">
+          </ngx-spinner>
+        </div>
+        </form>
+        </div>
+      </div>
+    </div>
+
+
