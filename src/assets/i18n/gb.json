@@ -5,6 +5,7 @@
   "language": "English",
   "login": "Login",
   "logout": "Logout",
+  "submit": "submit",
 
   "CV": "Create CV",
   "price": "Price",
@@ -18,5 +19,6 @@
   "country" : "Country",
   "city" : "City",
   "email": "Enter Your email",
-  "comment": "Leave a comment"
+  "comment": "Leave a comment",
+  "dashboard": "Dashboard"
 }

@@ -17,40 +17,50 @@
     </div>
   </div>
 </div> -->
-<div class="hj-container hj-same-section-padding">
-
-
+<div class="hj-container hj-same-section-padding pt-5">
 <app-hj-site-statistic></app-hj-site-statistic>
-<form [formGroup]="contactForm " (ngSubmit)="submitForm()" action="">
-  <div class="container">
-    <div class="row">
-      <div class="col-12 p-4 text-center">
+<div class="hj-card mt-5">
+  <form [formGroup]="contactForm " (ngSubmit)="submitForm()" action="">
+    <div class="p-5">
+      <div class="text-center">
         <h1 class="">Contact Us</h1>
         <p>We do the best we can</p>
       </div>
-      <mat-form-field class="col-6" appearance="outline">
-        <mat-label>{{"fullName" | translate}}</mat-label>
-        <input matInput type="text" formControlName="contact" required>
-      </mat-form-field>
-      <mat-form-field class="col-6" appearance="outline">
-        <mat-label>{{"email" | translate}}</mat-label>
-        <input matInput placeholder="pat@example.com" formControlName="email" required>
-        <!-- Display validation error for email -->
-        <mat-error *ngIf="contactForm.get('email')!.invalid && (contactForm.get('email')!.dirty || contactForm.get('email')!.touched)">
-          <span *ngIf="contactForm.get('email')!.errors?.['required']">Email is required</span>
-          <span *ngIf="contactForm.get('email')!.errors?.['email']">Not a valid email</span>
-        </mat-error>
-        <!-- <mat-error *ngIf="contactForm.get('email')!.hasError('required')">Email is required</mat-error> -->
-      </mat-form-field>
-      <mat-form-field class="example-full-width" appearance="outline">
-        <mat-label>{{"comment" | translate}}</mat-label>
-        <textarea matInput placeholder="Ex. It makes me feel..." formControlName="comment" required></textarea>
-      </mat-form-field>
-      <div class="col-12 text-center">
-        <button mat-flat-button (click)="openDialog()"  [ngClass]="{'btn_contact': contactForm.valid, 'btn_contact_disabled': !contactForm.valid}" class="rounded-pill px-4" [disabled]="!contactForm.valid" >Submit</button>
-        <button mat-flat-button  class="ms-3 border bg-body-tertiary rounded-pill px-4 " (click)="onClear()">Clear</button>
-      </div>
+      <div class="p-5 w-1/2 mx-auto">
+        <mat-form-field class="w-full my-2">
+          <mat-label>{{"fullName" | translate}}</mat-label>
+
+          <mat-icon matSuffix mat-icon-button  class="cursor-pointer" aria-label="Clear" *ngIf="value" (click)="value=''">close</mat-icon>
+          <input  matInput type="text" formControlName="name" [(ngModel)]="value" >
+          <mat-error *ngIf="contactForm.get('name')?.hasError('required') ">{{"required" | translate}}</mat-error>
+          <mat-error *ngIf="contactForm.get('name')?.hasError('minlength') ">{{"invalid" | translate}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="w-full my-2">
+          <mat-label>{{"email" | translate}}</mat-label>
+          <mat-icon class="cursor-pointer" matSuffix *ngIf="email_value" (click)="email_value=''">close</mat-icon>
+          <input type="email" matInput placeholder="pat@example.com" formControlName="email" [(ngModel)]="email_value" >
+
+          <mat-error *ngIf="contactForm.get('email')?.hasError('required')">{{"required" | translate}}</mat-error>
+          <mat-error *ngIf="contactForm.get('email')?.hasError('email') ">{{"invalid" | translate}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="w-full my-2">
+          <mat-label>{{"comment" | translate}}</mat-label>
+          <textarea matInput #message maxlength="256"  placeholder="Ex. It makes me feel..." formControlName="comment" required></textarea>
+          <mat-hint align="start">Don't disclose personal info</mat-hint>
+          <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+        </mat-form-field>
     </div>
-  </div>
-</form>
+
+      <div class=" text-center">
+        <button mat-flat-button [color]="contactForm.valid? 'primary' : 'secondary'"    class="rounded-pill px-4" [disabled]="!contactForm.valid" >{{"submit" | translate}}</button>
+        <!-- <button mat-flat-button  (click)="openDialog()"  [ngClass]="{'btn_contact': contactForm.valid, 'btn_contact_disabled': !contactForm.valid}" class="rounded-pill px-4" [disabled]="!contactForm.valid" >{{"submit" | translate}}</button> -->
+        <button mat-stroked-button class="mx-5" >Clear</button>
+      </div>
+
+    </div>
+  </form>
+</div>
+
 </div>

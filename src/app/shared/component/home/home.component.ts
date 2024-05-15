@@ -1,5 +1,6 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, signal, computed, inject } from '@angular/core';
 import { AdsService } from 'src/app/core/services/ads.service';
+import { DarkModeService } from 'src/app/core/services/dark-mode.service';
 import { UtilsService } from 'src/app/core/services/utils.service';
 
 @Component({
@@ -8,28 +9,27 @@ import { UtilsService } from 'src/app/core/services/utils.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit,OnDestroy {
-show: boolean =true;
+  // darkModeService: DarkModeService = inject(DarkModeService);
+show: boolean = true;
+  totalCost: any
+  selectedItem: string ='';
   ngOnDestroy(): void {
-
   }
 
-  zoneResult = {};
-  promise: any[] = [];
-
-  constructor(private adsService: AdsService, private utils: UtilsService) {
+  constructor(private utils: UtilsService) {
   }
 
   ngOnInit() {
-    this.utils.range(7,39).forEach(v => {
-      this.promise.push(this.adsService.getAdRevive(v))
-      this.utils.createObjects(this.zoneResult,v)
-    })
-
-    this.utils.resolvePromise(this.promise, this.zoneResult);
+    const price = signal<number>(10);
+    const quantity = signal<number>(5);
+    const totalCost = computed(() => price() * quantity());
+    console.log(totalCost(),"total cost")
   }
 
-  getKeys(obj: Object){
-    return Object.keys(obj);
+  onItemSelected(itemName: string){
+    this.selectedItem = itemName;
   }
+
 }
+
 

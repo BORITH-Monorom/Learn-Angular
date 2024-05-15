@@ -1,2 +1,13 @@
-<p>post-job works!</p>
-<!-- <app-mat-dropdown></app-mat-dropdown> -->
+
+<div class="hj-container hj-same-section-padding pt-5">
+  <div class="hj-card m-5">
+    <div class="hj-card-title">Post Job</div>
+    <div class="p-5">
+      <app-mat-dropdown  [config]="titleConfig" [placeholder]="'job title'"></app-mat-dropdown>
+      <div class="grid grid-flow-col gap-5 w-full">
+        <app-mat-dropdown  [config]="countryConfig" [placeholder]="'Country'"></app-mat-dropdown>
+        <app-mat-dropdown  [config]="functionConfig" [placeholder]="'Function'"></app-mat-dropdown>
+      </div>
+    </div>
+  </div>
+</div>

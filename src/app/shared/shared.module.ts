@@ -27,6 +27,7 @@ import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { MatSelectModule } from "@angular/material/select";
 import {MatChipsModule} from '@angular/material/chips';
+import { VerifyEmailComponent } from './component/verify-email/verify-email.component';
 @NgModule({
   providers:[
 

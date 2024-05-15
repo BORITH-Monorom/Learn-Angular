@@ -26,15 +26,6 @@ export class AboutUsComponent implements OnInit, AfterViewInit  {
   }
 
 
-
-
-
-
-
-
-
-
-
 totalCount:number;
 loader :boolean  = true; // Initial state for the loader
 // Initialize dataSource and bind to paginator

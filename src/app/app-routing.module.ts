@@ -12,8 +12,10 @@ import { PriceComponent } from './shared/component/price/price.component';
 import { RegisterComponent } from './shared/component/register/register.component';
 import { ResumeComponent } from './shared/component/resume/resume.component';
 import { SharedModule } from './shared/shared.module';
+import { ForgotPasswordComponent } from './shared/component';
+import { VerifyEmailComponent } from './shared/component/verify-email/verify-email.component';
 const routes: Routes = [
-  
+
   // {path: 'home',redirectTo: '/', pathMatch: 'full'},
   {path: 'home', component:HomeComponent},
   {path: 'aboutUs', component:AboutUsComponent},
@@ -21,8 +23,10 @@ const routes: Routes = [
   {path: 'resume', component:ResumeComponent, canDeactivate:[canDeactiveGuard]},
   {path: 'price', component:PriceComponent},
   {path:'employer', loadChildren: () => import('./employer/employer.module').then(m => m.EmployerModule)},
-  {path: 'login', component:LoginComponent, canActivate:[authGuard]},
+  {path: 'login', component:LoginComponent, canActivate:[authGuard], canDeactivate:[canDeactiveGuard]},
   {path: 'register', component:RegisterComponent},
+  {path: 'forgot-password', component:ForgotPasswordComponent},
+  {path: 'verify-email', component:VerifyEmailComponent},
   // {path: '**' , component:NotFoundComponent},
 ];
 

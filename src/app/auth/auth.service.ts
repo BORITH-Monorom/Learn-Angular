@@ -20,16 +20,23 @@ export class AuthService {
     return this.authState$.pipe(map(user => !!user));
   }
 
+  // login method
   login(email: string, password: string): Promise<void> {
-    return this.fireauth.signInWithEmailAndPassword(email, password).then(() => {
+    return this.fireauth.signInWithEmailAndPassword(email, password).then((res) => {
       localStorage.setItem('token', 'true');
-      this.router.navigate(['/dashboard']);
+
+      if(res.user?.emailVerified == true){
+        this.router.navigate(['/dashboard']);
+      } else{
+        this.router.navigate(['/verify-email']);
+      }
+
       const Toast = Swal.mixin({
         toast: true,
-        position: "bottom-start",
+        position: "top",
         showConfirmButton: false,
         timer: 2000,
-        timerProgressBar: true,
+        timerProgressBar: false,
         didOpen: (toast) => {
           toast.onmouseenter = Swal.stopTimer;
           toast.onmouseleave = Swal.resumeTimer;
@@ -37,11 +44,17 @@ export class AuthService {
       });
       Toast.fire({
         icon: "success",
-        title: "Signed in successfully"
+        title: "Correct Password."
       });
     }, err => {
       this.router.navigate(['/login']);
-      alert('Login fail');
+      Swal.fire({
+        position: "top",
+        icon: "error",
+        title: "Something went wrong please try again later.",
+        showConfirmButton: true,
+        // timer: 1000
+      });
 
     });
   }
@@ -68,11 +81,42 @@ export class AuthService {
 
   // register method
   register(email : string, password : string){
-    this.fireauth.createUserWithEmailAndPassword(email, password).then(() => {
-      alert('Registeration Sucessful')
+    this.fireauth.createUserWithEmailAndPassword(email, password).then((res) => {
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top",
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: false,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        }
+      });
+      Toast.fire({
+        icon: "success",
+        title: "Registered Successfully.",
+      });
       this.router.navigate(['/login']);
+      this.sendEmailForVerification(res.user) //
     }, err => {
-      alert(err.message);
+      // alert(err.message);
+      console.log(err.message);
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top",
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: false,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        }
+      });
+      Toast.fire({
+        icon: "error",
+        title: err.message,
+      });
       this.router.navigate(['/register']);
     })
   }
@@ -90,8 +134,8 @@ export class AuthService {
   sendEmailForVerification(user:any){
     user.sendEmailForVerification().then((res : any) =>{
       this.router.navigate(['/verify-email']);
-    }, (err:any) => {
-      alert ('something went wrong. Not able to send mail to your email.')
+    }, (err : any) => {
+      alert('something went wrong. Not able to send mail to your email.')
     })
   }
 

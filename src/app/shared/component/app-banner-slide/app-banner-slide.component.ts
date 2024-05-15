@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit} from '@angular/core';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { adsBanners } from 'src/app/core/model/employer/adsService.model';
@@ -19,6 +18,7 @@ ngOnInit(): void{
     if(res){
       this.slides = res.slice(0,3);
 }
+console.log(res);
 })
 }
 

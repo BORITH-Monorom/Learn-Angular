@@ -3,3 +3,10 @@ $container-fw: 100%;
 $card-shadow-white: 5px 5px 21px #d9d9d9,
 -5px -5px 21px #ffffff;
 $card-border-radius: 10px;
+
+$theme-fonts: (
+    'regular': ('Gilroy Regular',Helvetica, Arial, sans-serif, 'Nokora'),
+    'medium': ('Gilroy Medium',Helvetica, Arial, sans-serif, 'Nokora'),
+    'semibold': ('Gilroy Semibold',Helvetica, Arial, sans-serif, 'Nokora'),
+    'bold': ('Gilroy Bold',Helvetica, Arial, sans-serif, 'Nokora')
+);

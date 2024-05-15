@@ -1,4 +1,8 @@
-<nav class="">
+
+
+
+
+<nav class="max-lg:hidden sticky top-0 z-50 py-1 dark:border-b border-b-slate-300 border-b dark:border-b-slate-400 ">
   <div class="hj-container">
 
       <div class="flex items-center justify-between">
@@ -8,7 +12,7 @@
         </li>
         <li class="p-3">
           <a
-            class=""
+            class="dark:text-slate-50"
             aria-current="page"
             [routerLinkActive]="'active_menu'"
             [routerLink]="'/home'"
@@ -17,7 +21,7 @@
         </li>
         <li class="p-3">
           <a
-            class=""
+            class="dark:text-slate-50"
             aria-current="page"
             routerLinkActive="active_menu"
             routerLink="/aboutUs"
@@ -26,7 +30,7 @@
         </li>
         <li class="p-3">
           <a
-            class=""
+            class="dark:text-slate-50"
             aria-current="page"
             routerLinkActive="active_menu"
             routerLink="/contactUs"
@@ -35,17 +39,158 @@
         </li>
         <li class="p-3">
           <a
-            class=""
+            class="dark:text-slate-50"
             aria-current="page"
             routerLinkActive="active_menu"
             routerLink="/dashboard"
             *ngIf="isAuthenticated$ | async"
-            >Dashboard</a
+            >{{'dashboard' | translate}}</a
           >
         </li>
       </ul>
 
       <ul class="flex items-center">
+        <li class="">
+          <button mat-button [matMenuTriggerFor]="menu">
+            <!-- <mat-icon>language</mat-icon> -->
+
+            <span
+            *ngIf="country"
+            [ngClass]="country"></span>
+
+            {{'language' | translate}}</button>
+            <mat-menu #menu="matMenu" class="dark:text-slate-50">
+              <button class="dark:text-slate-50" mat-menu-item (click)="switchLang('kh')">
+                <span class="fi fi-kh"></span>
+                Khmer</button>
+              <button  mat-menu-item (click)="switchLang('gb')">
+                <span class="fi fi-gb"></span>
+                <span class="dark:text-slate-50">English</span> </button>
+            </mat-menu>
+        </li>
+        <li class=" batch-btn">
+          <button
+            routerLinkActive="active"
+            mat-button
+            routerLink="/resume"
+            class="btn_content"
+            *ngIf="!(isAuthenticated$ | async)"
+          >
+            <mat-icon>edit_document</mat-icon>
+            <span class="btn_text">{{'CV' | translate}}</span>
+            <div class="btn_eff"></div>
+          </button>
+        </li>
+        <li class=" batch-btn">
+          <button
+            routerLinkActive="active"
+            mat-button
+            routerLink="/price"
+            class="btn_content"
+          >
+            <mat-icon>shopping_cart</mat-icon>
+            <span class="btn_text">{{'price' | translate}}</span>
+            <span class="btn_eff"></span>
+          </button>
+        </li>
+        <li class=" batch-btn">
+          <button
+            *ngIf="isAuthenticated$ | async"
+            mat-button
+            class="btn_content"
+            routerLink="postJob"
+            routerLinkActive="active"
+          >
+            <mat-icon>upload</mat-icon>
+            <span class="btn_text">Post Job</span>
+            <span class="btn_eff"></span>
+          </button>
+        </li>
+
+        <li class="">
+          <button
+            *ngIf="!(isAuthenticated$ | async)"
+            mat-stroked-button
+            (click)="login()"
+            class="rounded-full border-cyan-600 text-cyan-600"
+          >
+            <mat-icon>login</mat-icon>
+            {{"login" | translate}}
+          </button>
+        </li>
+
+        <li class="">
+          <button
+            *ngIf="isAuthenticated$ | async"
+            mat-stroked-button
+            (click)="logout()"
+            class="rounded-full border-cyan-600 text-cyan-600"
+          >
+            <mat-icon>logout</mat-icon>
+            {{"logout" | translate}}
+          </button>
+        </li>
+        @if(darkModeService.darkModeSignal()==='dark'){
+          <button mat-icon-button (click)="toggleDarkMode()"><mat-icon class="text-slate-50">dark_mode</mat-icon> </button>
+        }@else {
+          <button mat-icon-button (click)="toggleDarkMode()"><mat-icon class="">light_mode</mat-icon></button>
+        }
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+
+<div class="lg:hidden  dark:border-b border-b-slate-300 border-b dark:border-b-slate-400 ">
+  <mat-toolbar  class="sticky top-0 z-50 dark:bg-slate-700"  >
+    <mat-toolbar-row >
+      <span><img src="/assets/images/logo.png" width="90px" alt="Hrinc Jobs" /></span>
+      <span class="flex-auto"></span>
+      <mat-icon (click)="toggle()" class="cursor-pointer dark:text-slate-300" >{{isToggle?'close':'menu'}}</mat-icon>
+    </mat-toolbar-row>
+
+  </mat-toolbar>
+  <mat-toolbar *ngIf="isToggle" class="dark:bg-slate-700" >
+    <mat-toolbar-row class=" dark:border-b border-b-slate-400 border-b dark:border-b-slate-400">
+      <a
+      class="dark:text-slate-300"
+      aria-current="page"
+      [routerLinkActive]="'active_menu'"
+      [routerLink]="'/home'"
+      >{{"home" | translate}}</a
+    >
+    </mat-toolbar-row>
+    <mat-toolbar-row class=" dark:border-b border-b-slate-400 border-b dark:border-b-slate-400">
+      <a
+      class="dark:text-slate-300"
+      aria-current="page"
+      routerLinkActive="active_menu"
+      routerLink="/aboutUs"
+      >{{"about" | translate}}</a
+    >
+    </mat-toolbar-row>
+    <mat-toolbar-row class=" dark:border-b border-b-slate-400 border-b dark:border-b-slate-400">
+      <a
+      class="dark:text-slate-300"
+      aria-current="page"
+      routerLinkActive="active_menu"
+      routerLink="/contactUs"
+      >{{"contact" | translate}}</a
+    >
+    </mat-toolbar-row>
+    <mat-toolbar-row *ngIf="isAuthenticated$ | async" class=" dark:border-b border-b-slate-400 border-b dark:border-b-slate-400">
+      <a
+      class="dark:text-slate-300"
+      aria-current="page"
+      routerLinkActive="active_menu"
+      routerLink="/dashboard"
+      *ngIf="isAuthenticated$ | async"
+      >Dashboard</a
+    >
+    </mat-toolbar-row>
+    <mat-toolbar-row class="flex justify-end">
+      <ul class="flex items-center ">
         <li class="">
           <button mat-button [matMenuTriggerFor]="menu">
             <!-- <mat-icon>language</mat-icon> -->
@@ -103,7 +248,7 @@
           </button>
         </li>
 
-        <li class=" batch-btn-transparent">
+        <li class="">
           <button
             *ngIf="!(isAuthenticated$ | async)"
             mat-button
@@ -115,7 +260,7 @@
           </button>
         </li>
 
-        <li class=" batch-btn-transparent">
+        <li class="">
           <button
             *ngIf="isAuthenticated$ | async"
             mat-button
@@ -126,8 +271,14 @@
             {{"logout" | translate}}
           </button>
         </li>
+        <li>
+          @if(darkModeService.darkModeSignal()==='dark'){
+            <button mat-icon-button (click)="toggleDarkMode()"><mat-icon class="text-slate-50">dark_mode</mat-icon> </button>
+          }@else {
+            <button mat-icon-button (click)="toggleDarkMode()"><mat-icon class="">light_mode</mat-icon></button>
+          }
+        </li>
       </ul>
-    </div>
-
-  </div>
-</nav>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>

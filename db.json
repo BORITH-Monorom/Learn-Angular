@@ -15,7 +15,7 @@
     {"id": 6, "country": "Thailand", "location": "pataya"},
     {"id": 7, "country": "Thailand", "location": "ThaiCity"}
   ],
-   "profile": {"name": "typicode"},
+  "profile": {"name": "typicode"},
   "site-statistics": {"total_employers": 6042,"vaccancies_jobs": 120,"jobs_impression": 120,"site_visited": 120,"jobs_view": 120},
   "ads-banner":[
     {"id":1, "image":"https://placehold.co/1200x390/blue/white"},

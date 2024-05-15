@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import Swal from 'sweetalert2';
 import { DialogComponent } from '../dialog/dialog.component';
@@ -11,25 +11,28 @@ import { DialogComponent } from '../dialog/dialog.component';
 })
 export class ContactUsComponent implements OnInit {
   contactForm: FormGroup;
+value: any;
+email_value: any;
+
   constructor(private fb : FormBuilder, private dialog:MatDialog ){}
 
 
   ngOnInit(): void {
     this.contactForm = this.fb.group({
-      contact: ['', Validators.required],
-      email: ['', [Validators.required, this.emailValidator]],
-      comment: ['', Validators.required]
+      name: ['', [Validators.required, Validators.minLength(5),]],
+      email: ['',[Validators.required, Validators.email,]],
+      comment: ['', [ Validators.required]]
     });
   }
 
 
-  emailValidator(control: AbstractControl): { [key: string]: boolean } | null {
-    const emailPattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
-    if (control.value && !emailPattern.test(control.value)) {
-      return { 'invalidEmail': true };
-    }
-    return null;
-  }
+  // emailValidator(control: AbstractControl): { [key: string]: boolean } | null {
+  //   const emailPattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+  //   if (control.value && !emailPattern.test(control.value)) {
+  //     return { 'invalidEmail': true };
+  //   }
+  //   return null;
+  // }
 openDialog(){
   let _popup =this.dialog.open(DialogComponent,{
     width:'500px',
@@ -37,7 +40,7 @@ openDialog(){
     exitAnimationDuration: '250ms',
     data:{
       title: 'Contact Us',
-      content: 'Are you sure?'
+      content: 'Are you sure you want to send this email?'
     }
 
   });
@@ -63,6 +66,7 @@ openDialog(){
 }
 onClear(){
   this.contactForm.reset();
+  this.contactForm.clearAsyncValidators;
 }
 submitForm(){}
 cancelForm(){}

@@ -1,24 +1,26 @@
-<div class="hj-card">
-  <div class="hj-card-grid-5">
-    <div class="hj-card-item">
-      <h1>{{ total_emp | shortNumber }}</h1>
-      <p class="hj-label">Employers use HRINC Jobs online advertising solution</p>
+<div class="hj-card p-3">
+  <div class="flex flex-wrap gap-3">
+
+    <div class="flex-1 min-w-40 p-3 rounded-2xl hover:shadow-xl text-center border-2 border-cyan-500">
+      <h1 class="font-bold text-4xl py-2 text-cyan-500">{{ total_emp | shortNumber }}</h1>
+      <p class="text-sm font-thin">Employers use HRINC Jobs online advertising solution</p>
     </div>
-    <div class="hj-card-item">
-      <h1>{{ total_vac | shortNumber }}</h1>
-      <p class="hj-label">Vacancies announced on <a href="#">www.hrincjobs.com</a> </p>
+    <div class="flex-1 min-w-40 p-3 rounded-2xl hover:shadow-xl text-center border-2 border-cyan-500">
+      <h1 class="font-bold text-4xl py-2 text-cyan-500">{{ total_vac | shortNumber }}</h1>
+      <p class="text-sm font-thin">Vacancies announced on <a href="#">www.hrincjobs.com</a> </p>
     </div>
-    <div class="hj-card-item">
-      <h1>{{ total_vis | shortNumber }}</h1>
-      <p class="hj-label">Website visited from anywhere at anytime</p>
+    <div class="flex-1 min-w-40 p-3 rounded-2xl hover:shadow-xl text-center border-2 border-cyan-500">
+      <h1 class="font-bold text-4xl py-2 text-cyan-500">{{ total_vis | shortNumber }}</h1>
+      <p class="text-sm font-thin">Website visited from anywhere at anytime</p>
     </div>
-    <div class="hj-card-item">
-      <h1>{{ total_imp | shortNumber }}</h1>
-      <p class="hj-label"> Jobs seen by job seekers</p>
+    <div class="flex-1 min-w-40 p-3 rounded-2xl hover:shadow-xl text-center border-2 border-cyan-500">
+      <h1 class="font-bold text-4xl py-2 text-cyan-500">{{ total_imp | shortNumber }}</h1>
+      <p class="text-sm font-thin"> Jobs seen by job seekers</p>
     </div>
-    <div class="hj-card-item">
-      <h1>{{ total_vie | shortNumber }}</h1>
-      <p class="hj-label">Jobs viewed by job seekers</p>
+    <div class="flex-1 min-w-40 p-3 rounded-2xl hover:shadow-xl text-center border-2 border-cyan-500">
+      <h1 class="font-bold text-4xl py-2 text-cyan-500">{{ total_vie | shortNumber }}</h1>
+      <p class="text-sm font-thin">Jobs viewed by job seekers</p>
     </div>
+
   </div>
 </div>

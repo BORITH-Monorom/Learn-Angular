@@ -53,6 +53,8 @@ body {
   height: 100%;
 }
 * {
+  padding: 0;
+  box-sizing: border-box;
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   font-family: "Noto Sans Khmer", sans-serif;
@@ -60,7 +62,6 @@ body {
 p {
   font-size: 18px;
 }
-
 :root {
   --light-effect: hsl(190, 100%, 60%);
   --button-color: #20c9f9;
@@ -81,13 +82,21 @@ p {
   width: $container-fw;
 }
 .hj-card{
+  @apply dark:shadow-none dark:border dark:border-slate-400 dark:bg-slate-800 dark:text-white;
   box-shadow: $card-shadow-white;
   border-radius: $card-border-radius;
 }
 .hj-same-section-padding{
   padding: 0 15px 20px 15px;
 }
+.hj-card-title{
+  font-family: theme-font("regular");
+  font-size: 20px;
+  font-weight: 600;
+  padding: 10px 15px;
+  border-bottom: 1px solid #ddd;
 
+}
 
 .flex{
   display: flex;
@@ -115,9 +124,38 @@ app-contact-us{
   }
 
 }
+.mat-mdc-button{
+  @apply dark:bg-slate-100;
+}
+
+
+//mat-form-field
+.mat-mdc-text-field-wrapper{
+  @apply dark:bg-slate-700 dark:text-slate-200 border dark:border-slate-400 #{!important};
+}
+
+.mat-mdc-input-element{
+  @apply dark:text-slate-200 #{!important};
+
+}
+mat-label{
+  @apply dark:text-slate-200;
+}
+
+
+//mat-table
+.mat-mdc-header-cell{
+  @apply dark:text-slate-200 dark:bg-slate-700 #{!important};
+}
+.mat-mdc-cell{
+  @apply dark:text-slate-200 dark:bg-slate-700 #{!important};
+}
+
+
+
+
 .batch-flex-center{
   display: flex !important;
-
 }
 .batch-btn {
   display: flex;
@@ -129,6 +167,7 @@ app-contact-us{
     padding: 10px 15px;
     border-radius: 999px;
     background-color: #20c9f9;
+    @apply dark:bg-cyan-600;
     color: white !important;
   }
 }

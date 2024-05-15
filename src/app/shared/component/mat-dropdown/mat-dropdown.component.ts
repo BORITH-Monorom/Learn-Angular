@@ -23,8 +23,19 @@ ngOnInit(): void {
 remove(value:any):void{
 
 }
-
+@Input("config") config:IDropConfig = {multiSelect:false};
 @Input() placeholder:string ;
 @Input() error: string;
 @Input() inputType: string;
+
+configuration:IDropConfig ={
+  multiSelect:false,
+  appearance:'',
+  className: '',
+}
+}
+export interface IDropConfig{
+  multiSelect?:boolean,
+  appearance?:any,
+  className?:string,
 }

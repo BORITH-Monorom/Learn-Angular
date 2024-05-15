@@ -16,6 +16,10 @@ import { RegisterComponent } from "./register/register.component";
 import { ResumeComponent } from "./resume/resume.component";
 import { HjSiteStatisticComponent } from "./hj-site-statistic/hj-site-statistic.component";
 import { AppBannerSlideComponent } from "./app-banner-slide/app-banner-slide.component";
+import { PremiumEmployersComponent } from "./premium-employers/premium-employers.component";
+import { ForgotPasswordComponent } from "./forgot-password/forgot-password.component";
+import { VerifyEmailComponent } from "./verify-email/verify-email.component";
+import { AdsBannerComponent } from "./ads-banner/ads-banner.component";
 
 export const components: any[] = [
 LoginComponent,
@@ -35,8 +39,11 @@ ImageControlComponent,
 CropperDialogComponent,
 HjSiteStatisticComponent,
 AppBannerSlideComponent,
-ShortNumberPipe
-
+PremiumEmployersComponent,
+ForgotPasswordComponent,
+VerifyEmailComponent,
+ShortNumberPipe,
+AdsBannerComponent
 ]
 
 export * from './login/login.component';
@@ -55,3 +62,8 @@ export * from './dialog/dialog.component';
 export * from './image-control/image-control.component';
 export * from './hj-site-statistic/hj-site-statistic.component';
 export * from './cropper-dialog/cropper-dialog.component';
+export * from './app-banner-slide/app-banner-slide.component';
+export * from './premium-employers/premium-employers.component';
+export * from './forgot-password/forgot-password.component';
+export * from './verify-email/verify-email.component';
+export * from './ads-banner/ads-banner.component';

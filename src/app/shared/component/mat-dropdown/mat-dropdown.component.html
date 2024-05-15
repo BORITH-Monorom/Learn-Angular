@@ -1,12 +1,19 @@
-<mat-form-field *ngIf="show">
-  <mat-label>{{placeholder}}</mat-label>
-  <input matInput [type]="inputType">
-  <mat-error>{{error}}</mat-error>
-</mat-form-field>
+<div *ngIf="config['multiSelect']; else singleBlock">
 
-<ng-container #show></ng-container>
-<mat-form-field>
-  <mat-label>{{placeholder}}</mat-label>
-  <input matInput [type]="inputType">
-  <mat-error>{{error}}</mat-error>
-</mat-form-field>
+  <mat-form-field  [appearance]="config.appearance" [ngClass]="config.className">
+    <mat-label>{{placeholder}}</mat-label>
+    <input matInput [type]="inputType">
+    <mat-error>{{error}}</mat-error>
+  </mat-form-field>
+</div>
+
+  <ng-template #singleBlock>
+    <mat-form-field [appearance]="config.appearance" [ngClass]="config.className">
+      <mat-label>{{placeholder}}</mat-label>
+      <mat-chip-grid #chipGrid arial-label="Enter fruit">
+        <mat-chip-row>
+          <input >
+        </mat-chip-row>
+      </mat-chip-grid>
+    </mat-form-field>
+  </ng-template>
